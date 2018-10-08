@@ -11,27 +11,27 @@ automated configuration or containers.
 
 ## Table of Contents
 
-- PART I
--- Introduction
--- What is the cloud computing?
--- New methods used to deploy applications
+* PART I
+  - Introduction
+  - What is the cloud computing?
+  - New methods used to deploy applications
 
-- PART II
--- Infrastructure as Code
--- DevOps (and Site Reliability Engineer)
--- Markup Languages
--- Frequently used programming languages: Python, Ruby, Go, Nodejs
--- Version Control Systems: git
--- Resurce provisioning: Cloudformation, heat, terraform 
--- Configuration management systems: Puppet, chef, ansible y salt
+* PART II
+  - Infrastructure as Code
+  - DevOps (and Site Reliability Engineer)
+  - Markup Languages
+  - Frequently used programming languages: Python, Ruby, Go, Nodejs
+  - Version Control Systems: git
+  - Resurce provisioning: Cloudformation, heat, terraform 
+  - Configuration management systems: Puppet, chef, ansible y salt
 
-- PART III
--- IaaS
--- Public or Private: AWS, GCE, Azure and OpenStack
--- IaaS Resources
+* PART III
+  - IaaS
+  - Public or Private: AWS, GCE, Azure and OpenStack
+  - IaaS Resources
 
-- PART IV
--- Containers: Systems containers like LXC vs applications containers like docker
--- Containers orchestration: kuberentes
--- Containers on IaaS
--- Contenedores on PaaS
+* PART IV
+  - Containers: Systems containers like LXC vs applications containers like docker
+  - Containers orchestration: kuberentes
+  - Containers on IaaS
+  - Contenedores on PaaS
