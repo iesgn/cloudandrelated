@@ -17,8 +17,8 @@ automated configuration or containers.
 ## Table of Contents
 
 * PART I
-  - Introduction
-  - What is the cloud computing?
+  - [What is the cloud computing?](https://iesgn.github.io/cloudandrelated/intro-cloud.html#/)
+  - Infrastructure evolution
   - New methods used to develop and deploy applications
 
 * PART II
