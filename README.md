@@ -9,12 +9,17 @@ of the technologies used, so it can even be considered as a previous
 course to a more specific one about IaaS, PaaS, resource provisioning,
 automated configuration or containers.
 
+## Presentation
+
+* [About the speaker](https://iesgn.github.io/cloudandrelated/about-alberto.html#/)
+* [Course presentation](https://iesgn.github.io/cloudandrelated/presentation.html#/)
+
 ## Table of Contents
 
 * PART I
   - Introduction
   - What is the cloud computing?
-  - New methods used to deploy applications
+  - New methods used to develop and deploy applications
 
 * PART II
   - Infrastructure as Code
