@@ -18,8 +18,8 @@ automated configuration or containers.
 
 * PART I
   - [What is the cloud computing?](https://iesgn.github.io/cloudandrelated/intro-cloud.html#/)
-  - Infrastructure evolution
-  - New methods used to develop and deploy applications
+  - [Infrastructure evolution](https://iesgn.github.io/cloudandrelated/infra-evolution.html#/)
+  - [Applications evolution](https://iesgn.github.io/cloudandrelated/app-evolution.html#/)
 
 * PART II
   - Infrastructure as Code
