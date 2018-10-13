@@ -1,10 +1,10 @@
 ---
 layout: presentacion
-title: Presentation
+title: Applications evolution
 tema: white
 ---
 <section>
-  <h2>Application evolution</h2>
+  <h2>Applications evolution</h2>
   <p>
     Alberto Molina Coballes, José Luis Rodríguez Rodríguez and José Domingo Muñoz Rodríguez
   </p>
@@ -29,8 +29,8 @@ tema: white
     information contained therein</quote> 
 </section>
 <section>
-  <h2>Application evolution</h2>
-  <p>The way the application are developed and deployed is changing,
+  <h2>Applications evolution</h2>
+  <p>The way the applications are developed and deployed is changing,
     as well as the applications themselves.</p>
   <p>The typical application some years ago was running locally on a
     PC, however today most of the applications run on a remote web
@@ -42,9 +42,9 @@ tema: white
     <li>Scale up or vertical scaling: Adding more resources to the
       system when needed</li>
     <ul>
-      <li>Easy to scale up</li>
+      <li>"Easy" to scale up</li>
       <li>Limited to the resources available to one system</li>
-      <li>Difficult to scale down</li>
+      <li>It can be difficult to scale down</li>
       <li>The application doesn't need to be adapted</li>
     </ul>
     <li>Scale out or horizontal scaling: Asociated to distributed
@@ -52,14 +52,30 @@ tema: white
     <ul>
       <li>Needs some automation to scale</li>
       <li>Easy to increase or decrease used resources</li>
-      <li>The application needs to be adapted (distributed
-	architecture)</li>
+      <li>"Unlimited resources"
+      <li>The application needs to be adapted</li>
     </ul>
 </section>
 <section>
     <h3>Monolithic application</h3>
   <ul>
     <li>All the components executed in the same node</li>
-    <li>
+    <li>Scale up</li>
+    <li>Simple architecture</li>
+    <li>Interferences between components</li>
+    <li>The application is usually updated as a whole</li>
+    <li>Static infrastructure for years</li>
+    <li>Application is not fault tolerant</li>
   </ul>
 </section>
+<section>
+  <h3>Distributed application</h3>
+  <ul>
+    <li>Ideally it uses one component per node</li>
+    <li>Scale out</li>
+    <li>Complex architecture</li>
+    <li>Less interferences between components</li>
+    <li>Each component can be updated separately</li>
+  </ul>
+</section>
+<
