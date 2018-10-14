@@ -13,6 +13,7 @@ automated configuration or containers.
 
 * [About the speaker](https://iesgn.github.io/cloudandrelated/about-alberto.html#/)
 * [Course presentation](https://iesgn.github.io/cloudandrelated/presentation.html#/)
+* [Linux won](https://iesgn.github.io/cloudandrelated/linux-won.html#/)
 
 ## Table of Contents
 
