@@ -11,7 +11,7 @@ automated configuration or containers.
 
 ## Presentation
 
-* [About the speaker](https://iesgn.github.io/cloudandrelated/about-speakers.html#/)
+* [About the speakers](https://iesgn.github.io/cloudandrelated/about-speakers.html#/)
 * [Course presentation](https://iesgn.github.io/cloudandrelated/presentation.html#/)
 * [Linux won](https://iesgn.github.io/cloudandrelated/linux-won.html#/)
 
@@ -23,8 +23,8 @@ automated configuration or containers.
   - [Applications evolution](https://iesgn.github.io/cloudandrelated/app-evolution.html#/)
 
 * PART II
-  - Infrastructure as Code
-  - DevOps (and Site Reliability Engineer)
+  - [Infrastructure as Code](https://iesgn.github.io/cloudandrelated/infra_as_code.html#/)
+  - [DevOps (and Site Reliability Engineer)](https://iesgn.github.io/cloudandrelated/devops.html#/)
   - Markup Languages
   - Frequently used programming languages: Python, Ruby, Go, Nodejs
   - Version Control Systems: git
