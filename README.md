@@ -38,6 +38,6 @@ automated configuration or containers.
 
 * PART IV
   - Containers: Systems containers like LXC vs applications containers like docker
-  - Containers orchestration: kuberentes
+  - Containers orchestration: kubernetes
   - Containers on IaaS
   - Containers on PaaS
