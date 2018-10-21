@@ -42,3 +42,7 @@ automated configuration or containers.
   - Containers on IaaS
   - Containers on PaaS
     - [Introducción a PaaS](https://iesgn.github.io/cloudandrelated/paas.html#/)
+    - Introducción a OpenShift
+    - Ciclo de vida de nuestras aplicaciones en docker
+    - ¿Qué nos aporta Kubernetes en el despliegue de aplicaciones?
+    - Desplegando aplicaciones en Openshift
