@@ -40,4 +40,4 @@ automated configuration or containers.
   - Containers: Systems containers like LXC vs applications containers like docker
   - Containers orchestration: kuberentes
   - Containers on IaaS
-  - Contenedores on PaaS
+  - Containers on PaaS
