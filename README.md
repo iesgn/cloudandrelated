@@ -20,10 +20,11 @@ automated configuration or containers.
 * PART I
   - [What is the cloud computing?](https://iesgn.github.io/cloudandrelated/intro-cloud.html#/)
   - [Infrastructure evolution](https://iesgn.github.io/cloudandrelated/infra-evolution.html#/)
-  - [Applications evolution](https://iesgn.github.io/cloudandrelated/app-evolution.html#/)
+  - [Applications evolution](https://iesgn.github.io/cloudandrelated/app-evolution.html#/). [VIDEO](https://youtu.be/CIVPS8sUVlM)
+  - [Why clod computing must be used in IT courses?](https://youtu.be/2AMgEB2Fm3g)
 
 * PART II
-  - [Infrastructure as Code](https://iesgn.github.io/cloudandrelated/infra_as_code.html#/)
+  - [Infrastructure as Code](https://iesgn.github.io/cloudandrelated/infra_as_code.html#/). [VIDEO](https://youtu.be/Jcx5sbl5teE)
   - [DevOps (and Site Reliability Engineer)](https://iesgn.github.io/cloudandrelated/devops.html#/)
   - Markup Languages
   - Frequently used programming languages: Python, Ruby, Go, Nodejs
