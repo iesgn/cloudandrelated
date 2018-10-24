@@ -26,7 +26,7 @@ automated configuration or containers.
 * PART II
   - [Infrastructure as Code](https://iesgn.github.io/cloudandrelated/infra_as_code.html#/). [VIDEO](https://youtu.be/Jcx5sbl5teE)
   - [DevOps (and Site Reliability Engineer)](https://iesgn.github.io/cloudandrelated/devops.html#/)
-  - Markup Languages
+  - [Markup Languages](https://iesgn.github.io/cloudandrelated/markup.html#/). [VIDEO]()
   - Frequently used programming languages: Python, Ruby, Go, Nodejs
   - Version Control Systems: git
   - Resurce provisioning: Cloudformation, heat, terraform 
