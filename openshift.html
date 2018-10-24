@@ -1,0 +1,80 @@
+---
+layout: presentacion
+title: Introducción a Openshift
+tema: white
+---
+<section>
+  <h2>Introducción a OpenShift</h2>
+  <h3>Aplicaciones orientadas a microservicios</h3>
+  <p>
+    Alberto Molina Coballes, José Luis Rodríguez Rodríguez and José Domingo Muñoz Rodríguez
+  </p>
+  <p><small>Cloud Computing in European schools. Project: 2017-1-ES01-KA202-038471</small></p>
+  <p><img src="img/UE.png" width="250px" border="0"/>
+    <img src="img/iesvalleinclan.png" width="250px" border="0"/>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+
+<section>
+<section>
+  <h2>Despliegue tradicional de aplicaciones</h2>
+  <ul>
+    <li>Las aplicaciones tradicionalmente se implementan como un sólo conjunto de librerías y archivos de configuración.</li>
+    <li>Se implementan en un sistema operativo (en servidores físicos o virtuales) con un conjunto se servicios en ejecución (web, base de datos, ...).</li>
+    <li>Desventaja 1: Las actualizaciones del S.O. puede interrumpir la aplicación.</li>
+    <li>Desventaja 2: Si en un mismo sistema tenemos varias aplicaciones, las actualizaciones de librerías de una ella puede afectar a otras aplicaciones.</li>
+    <li>Posible solución: Sistemas en alta disponibilidad que minimicen el tiempo de parada de una aplicación.</li>
+  </ul>
+</section>
+<section>
+  <h2>¿Qué alternativa podemos encontrar hoy en día?</h2>
+  <h1>Los Contenedores</h1>
+  <img src="img/conteiners.png"/>
+  <small>Red Hat</small>
+</section>
+</section>
+<section>
+  <img src="img/paas2.png"/>
+  <small>Fuente: https://azure.microsoft.com/es-es/overview/what-is-paas/</small>
+</section>
+<section>
+  <img src="img/paas.png"/>
+  <small>Fuente: https://medium.com/@lopezlucas/introducci%C3%B3n-a-cloud-saas-iaas-paas-772c92c29bb1</small>
+</section>
+<section>
+<ul>
+  <li>Los desarrolladores solo tienen que preocuparse por la programación de las aplicaciones.</li>
+  <li>No se preocupan por la configuración ni el software que hay por debajo, ahorrando tiempo y recursos.</li>
+  <li>PaaS puede ejecutarse por encima del IaaS (si vamos a virtualizar todo), en máquinas físicas e incluso en contenedores.</li>
+  <li>Obtenemos características de Cloud Computing: elasticidad, pago por uso,...</li>
+  <li>Las operaciones se trasforman en <strong>DevOps</strong></li>
+</ul>
+
+</section>
+<section>
+  <ul>
+    <li>Grandes proveedores (ofrecen de todo!!!)...</li>
+    <ul>
+      <li>Amazon Web Service</li>
+      <li>Microsoft Azure</li>
+      <li>Google App Engine</li>
+      <li>Oracle Cloud Platform</li>
+    </ul>
+    <li>Pensada para desarrolladores...</li>
+    <ul>
+      <li>Heroku</li>
+      <li>OpenShift</li>
+    </ul>
+    <li>Para que cualquiera desarrolle...(no-code applicattions)</li>
+    <ul>
+      <li>QuickBase</li>
+      <li>outsystems</li>
+      <li>azuqua</li>
+    </ul>
+  </ul>
+</section>
