@@ -144,7 +144,7 @@ tema: white
 </section>
 <section>
   <h5>Paso 5:Implantación de la aplicación</h5>
-  <p>En el el entorno de producción, bajamos la imagen de Docker Hub y creamos el contenedor:</p>
+  <p>En el el <strong>entorno de producción</strong>, bajamos la imagen de Docker Hub y creamos el contenedor:</p>
   <pre><code>
     $ docker pull josedom24/aplicacionweb:v1
     v1: Pulling from josedom24/aplicacionweb
@@ -160,21 +160,18 @@ tema: white
   <pre><code>
     $ cd public_html
     echo "&lt;h1&gt;Prueba 2&lt;/h1&gt;" > index.html
-    ...
     $ docker build -t josedom24/aplicacionweb:v2 .
-    ...
-  </code></pre>
+    </code></pre>
   <p>Podemos probarla en el entorno de desarrollo, eliminando el contenedor anterior:</p>
   <pre><code>
     $ doker container rm -f aplweb
-
     $ docker run --name aplweb2 -d -p 80:80 josedom24/aplicacionweb:v2
   </code></pre>
   <img src="img/docker2.png"/>
 </section>
 <section>
   <h4>Paso 6: Modificación de la aplicación</h4>
-  <p>Subimos la nueva versión de la aplicación. En el entorno de producción: bajamos la nueva versión, eliminamos el contenedor de la versión antigua y creamos un nuevo contenedor con la nueva imagen:</p>
+  <p>Subimos la nueva versión de la aplicación. En el <strong>entorno de producción</strong>: bajamos la nueva versión, eliminamos el contenedor de la versión antigua y creamos un nuevo contenedor con la nueva imagen:</p>
   <pre><code>
     $ docker push josedom24/aplicacionweb:v1
     ...
