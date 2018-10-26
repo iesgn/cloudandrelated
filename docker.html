@@ -43,7 +43,7 @@ tema: white
   <h2>Ciclo de vida de nuestras aplicaciones en docker</h2>
 </section>
 <section>
-  <h2>Paso 1:Desarrollo de nuestra aplicación</h2>
+  <h3>Paso 1:Desarrollo de nuestra aplicación</h3>
   <p>En este ejemplo vamos a desarrollar una página web que va a ser servida por un servidor web que se ejecutará en un contenedor Docker.</p>
   <p>Por lo tanto lo primero que debemos hacer es crear nuestra página web:</p>
   <pre><code data-trim data-noescape>
@@ -52,7 +52,7 @@ tema: white
   </code></pre>
 </section>
 <section>
-  <h2>Paso 2: Creación de la imagen Docker</h2>
+  <h3>Paso 2: Creación de la imagen Docker</h3>
   <p>Utilizando un fichero <code>Dockerfile</code> definimos como vamos a crear nuestra imagen:</p>
   <ul>
     <li>Qué imagen base vamos a utilizar.</li>
@@ -62,7 +62,7 @@ tema: white
   </ul>
 </section>
 <section>
-  <h2>Paso 2: Creación de la imagen Docker</h2>
+  <h3>Paso 2: Creación de la imagen Docker</h3>
   <p><code>Dockerfile</code></p>
   <pre><code>
     FROM debian
@@ -71,6 +71,23 @@ tema: white
         && apt-get clean && rm -rf /var/lib/apt/lists/*
     COPY ./public_html /var/www/html/
     ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+  </code></pre>
+</section>
+<section>
+  <h4>Paso 2: Creación de la imagen Docker</h4>
+  <p>Creamos nuestra imagen:</p>
+  <pre><code>
+    FROM debian
+    RUN apt-get update -y && apt-get install -y \
+        apache2 \
+        && apt-get clean && rm -rf /var/lib/apt/lists/*
+    COPY ./public_html /var/www/html/
+    ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+  </code></pre>
+  <p>Podríamos usar una imagen base con apache2 ya instalado:</p>
+  <pre><code>
+    FROM httpd:2.4
+    COPY ./public_html /usr/local/apache2/htdocs/
   </code></pre>
 </section>
 </section>
