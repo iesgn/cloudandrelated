@@ -47,8 +47,8 @@ tema: white
   <p>En este ejemplo vamos a desarrollar una página web que va a ser servida por un servidor web que se ejecutará en un contenedor Docker.</p>
   <p>Por lo tanto lo primero que debemos hacer es crear nuestra página web:</p>
   <pre><code data-trim data-noescape>
-  $ ls public_html
-  index.html
+  $ cd public_html
+  echo "Prueba" > index.html
   </code></pre>
 </section>
 <section>
@@ -62,20 +62,8 @@ tema: white
   </ul>
 </section>
 <section>
-  <h3>Paso 2: Creación de la imagen Docker</h3>
-  <p><code>Dockerfile</code></p>
-  <pre><code>
-    FROM debian
-    RUN apt-get update -y && apt-get install -y \
-        apache2 \
-        && apt-get clean && rm -rf /var/lib/apt/lists/*
-    COPY ./public_html /var/www/html/
-    ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-  </code></pre>
-</section>
-<section>
   <h4>Paso 2: Creación de la imagen Docker</h4>
-  <p>Creamos nuestra imagen:</p>
+  <p><code>Dockerfile</code></p>
   <pre><code>
     FROM debian
     RUN apt-get update -y && apt-get install -y \
@@ -90,4 +78,52 @@ tema: white
     COPY ./public_html /usr/local/apache2/htdocs/
   </code></pre>
 </section>
+<section>
+  <h4>Paso 2: Creación de la imagen Docker</h4>
+  <p>Creamos nuestra imagen, desde el directorio donde tenemos el <code>Dockerfile</code>, ejecutamos:</p>
+  <pre><code>
+    $ docker build -t josedom24/aplicacionweb:v1 .
+    Sending build context to Docker daemon  3.584kB
+    Step 1/4 : FROM debian
+     ---> be2868bebaba
+    Step 2/4 : RUN apt-get update -y && apt-get install -y apache2 & apt-get clean && rm -rf /var/lib/apt/lists/*
+     ---> Using cache
+     ---> 881c118ce8c7
+    Step 3/4 : COPY ./public_html /var/www/html/
+     ---> Using cache
+     ---> ef9dc76a1763
+    Step 4/4 : ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+     ---> Using cache
+     ---> 518871c9fc0c
+    Successfully built 518871c9fc0c
+    Successfully tagged josedom24/aplicacionweb:v1
+  </code></pre>
+</section>
+</section>
+<section>
+  <h4>Paso 2: Creación de la imagen Docker</h4>
+  <p>Podemos comprobar que en nuestro entorno local tenemos la imagen que acabamos de crear:</p>
+  <pre><code>
+    $ docker image ls
+    REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+    josedom24/aplicacionweb   v1                  b2e0df215145        7 seconds ago       204MB
+    debian                    latest              be2868bebaba        10 days ago         101MB
+  </code></pre>
+</section>
+<section>
+  <h4>Paso 3: Probamos nuestra aplicación en el entorno de desarrollo</h4>
+  <p>Creamos un contenedor en nuestro entorno de desarrollo:</p>
+  <pre><code>
+  $ docker run --name aplweb -d -p 80:80 josedom24/aplicacionweb:v1
+  fbdd73529e2bb2d9ee9c6415031513741688e6d38509572251f5b624ed7dc23f
+  
+  $ docker container ls
+  CONTAINER ID        IMAGE                        COMMAND                    CREATED             STATUS              PORTS                NAMES
+  fbdd73529e2b        josedom24/aplicacionweb:v1   "/usr/sbin/apache2ct…"   6 seconds ago       Up 5 seconds        0.0.0.0:80->80/tcp   aplweb
+  </code></pre>
+</section>
+<section>
+  <h4>Paso 3: Probamos nuestra aplicación en el entorno de desarrollo</h4>
+  <p>Probamos nuestra aplicación:</p>
+
 </section>
