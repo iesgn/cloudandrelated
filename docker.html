@@ -24,9 +24,9 @@ tema: white
   <h3>Docker</h3>
   <ul>
     <li>Virtualización ligera: aprovechamos mejor el hardware y únicamente necesitamos el sistema de archivos mínimo para que funcionen los servicios.</li>
-    <li>Los contenedores son autosuficientes, no necesitando nada más que la imagen del contenedor para que funcionen los servicios que ofrece.</li>
-    <li>Una imagen Docker podríamos entenderla como <em>"un Sistema Operativo con aplicaciones instaladas"</em>. A partir de una imagen se puede crear un contenedor.</li>
-    <li>El proyecto nos ofrece es un repositorio de imágenes al estilo Github. Este servicio se llama <a href="https://hub.docker.com/">Registry Docker Hub</a> y permite crear, compartir y utilizar imágenes creadas por nosotros o por terceros.</li>
+    <li>Los contenedores son autosuficientes, sólo necesitamos una imagen para crear contenedores.</li>
+    <li>Una imagen Docker podríamos entenderla como <em>"un Sistema Operativo con aplicaciones instaladas"</em>.</li>
+    <li>El proyecto nos ofrece es un repositorio de imágenes al estilo Github. Este servicio se llama <a href="https://hub.docker.com/">Registry Docker Hub</a> y permite gestionar imágenes.</li>
     <li>Un contenedor suele ejecutar un sólo servicio. Una aplicación suele necesitar la ejecución de varios contenedores que trabajan juntos.</li>
   </ul>
 </section>
@@ -37,4 +37,20 @@ tema: white
     <li><strong>Docker Client</strong>: Es el cliente de línea de comandos (CLI) que nos permite gestionar el Docker Engine. El cliente docker se puede configurar para trabajar con con un Docker Engine local o remoto.</li>
     <li><strong>Docker Registry</strong>: La finalidad de este componente es almacenar las imágenes generadas por el Docker Engine. Nos permite distribuir nuestras imágenes. Podemos instalar un registro privado, o hacer uso de uno público como Docker Hub.</li>
   </ul>
+</section>
+<section>
+<section>
+  <h2>Ciclo de vida de nuestras aplicaciones en docker</h2>
+</section>
+<section>
+  <h2>Paso 1:Desarrollo de nuestra aplicación</h2>
+  <p>En este ejemplo vamos a desarrollar una página web que va a ser servida por un servidor web que se ejecutará en un contenedor Docker.</p>
+  <p>Por lo tanto lo primero que debemos hacer es crear nuestra página web:</p>
+  <pre><code data-trim data-noescape>
+    $ ls
+    index.html
+  </code></pre>
+
+
+</section>
 </section>
