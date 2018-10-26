@@ -43,7 +43,7 @@ tema: white
   <h2>Ciclo de vida de nuestras aplicaciones en docker</h2>
 </section>
 <section>
-  <h3>Paso 1:Desarrollo de nuestra aplicación</h3>
+  <h4>Paso 1:Desarrollo de nuestra aplicación</h4>
   <p>En este ejemplo vamos a desarrollar una página web que va a ser servida por un servidor web que se ejecutará en un contenedor Docker.</p>
   <p>Por lo tanto lo primero que debemos hacer es crear nuestra página web:</p>
   <pre><code data-trim data-noescape>
@@ -53,11 +53,11 @@ tema: white
 </section>
 <section>
 <section>
-  <h3>Paso 2: Creación de la imagen Docker</h3>
+  <h4>Paso 2: Creación de la imagen Docker</h4>
   <p>Utilizando un fichero <code>Dockerfile</code> definimos como vamos a crear nuestra imagen:</p>
   <ul>
     <li>Qué imagen base vamos a utilizar.</li>
-    <li>Qué paquetes vamos a usar</li>
+    <li>Qué paquetes vamos a instalar</li>
     <li>Donde copiamos nuestro código fuente (página web)</li>
     <li>Indicamos el servicio que va a ejecutar el contenedor (servidor apache)</li>
   </ul>
@@ -146,6 +146,11 @@ tema: white
   <pre><code>
     $ docker search josedom24/aplicacionweb
     NAME                     DESCRIPTION...
-    josedom24/docker_mysql   
+    josedom24/aplicacionweb:v1   
   </code></pre>
+</section>
+<section>
+  <h5>Paso 5:Implantación de la aplicación</h5>
+  <p>En el el entorno de producción, bajamos la imagen de Docker Hub y creamos el contenedor:</p>
+
 </section>
