@@ -206,4 +206,26 @@ tema: white
     <li>La modificación de los datos de la aplicación no conlleva la construcción de una nueva imagen.</li>
   </ul>
 </section>
+<section>
+  <h4>Ejemplo de almacenamiento persistente</h4>
+  <p>Si consideramos nuestra página web como los datos de nuestra aplicación, podemos crear un volumen en docker para guardar la información de <pre>/var/www</pre>, nuestro <pre>Dockerfile</pre> quedaría:</p>
+  <pre><code>
+    FROM debian
+    RUN apt-get update -y && apt-get install -y \
+        apache2 \
+        && apt-get clean && rm -rf /var/lib/apt/lists/*
+    VOLUME /var/www /var/log/apache2
+    COPY ./public_html /var/www/html/
+    ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+  </code></pre>
+</section>
+<section>
+    <h4>Ejemplo de almacenamiento persistente</h4>
+    $ docker run --name aplweb3 -d -p 80:80 prueba
+da85795e2c45fdfe32a8d0bff4c398cf609a936d42c028628805e2bfd1b4b64c
+debian@docker:~/apache2/debian$ docker volume ls
+DRIVER              VOLUME NAME
+local               a19f63bcdcb23aa0dec02005b9bb78c3a36b6b03d5364dcb974b961b9a02b7c7
+
+</section>  
 </section>
