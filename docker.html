@@ -178,10 +178,32 @@ tema: white
   </code></pre>
   <p>En producción:</p>
   <pre><code>
-$ docker pull josedom24/aplicacionweb:v2
-...
-$ doker container rm -f aplweb_prod
-$ docker run --name aplweb2_prod -d -p 80:80 josedom24/aplicacionweb:v2
+    $ docker pull josedom24/aplicacionweb:v2
+    ...
+    $ doker container rm -f aplweb_prod
+    $ docker run --name aplweb2_prod -d -p 80:80 josedom24/aplicacionweb:v2
   </code></pre>
+</section>
+</section>
+<section></section>
+<section>
+  <h2>Construir aplicaciones sin estado(Stateless)</h2>
+  <ul>
+    <li>Una aplicación sin estado(Stateless) es aquella que no guarda ninguna información. Se ejecuta, hace su trabajo y se elimina.</li>
+    <li>Una aplicación con estado (Stateful) es aquella que necesita guardar información para su funcionamiento.</li>
+    <li>Si creo una aplicación desde 0 debería construirla sin estado</li>
+    <li>La mayoría de las aplicaciones actuales son Stateful.</li>
+    <li>La información que se guarda en un contenedor no es persistente.</li>
+    <li>Los contenedores que implementan aplicaciones Stateful deben guardar los datos en un medio de almacenamiento persistente. Desacoplamos la aplicación de los datos.</li>
+  </ul>
+</section>
+<section>
+  <h2>Ventajas de guardar los datos en almacenamiento persistente</h2>
+  <ul>
+    <li>Los contenedores son más livianos.</li>
+    <li>Puedo tener datos distintos en los distintos entornos de desarrollo.</li>
+    <li>Si un contenedor falla, no se pierde información sólo tengo que crear un nuevo contenedor.</li>
+    <li>La modificación de los datos de la aplicación no conlleva la construcción de una nueva imagen.</li>
+  </ul>
 </section>
 </section>
