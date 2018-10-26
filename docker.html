@@ -130,3 +130,22 @@ tema: white
   <img src="img/docker1.png"/>
 </section>
 </section>
+<section>
+  <h4>Paso 4: Distribuimos nuestra imagen</h4>
+  <p>Vamos a subir nuestra imagen al registro Docker Hub:</p>
+  <pre><code>
+    $ docker login
+    ...
+    $ docker push josedom24/aplicacionweb:v1
+    The push refers to repository [docker.io/josedom24/aplicacionweb]
+    ac126159496f: Pushed 
+    cc15ec5f0c43: Pushed 
+    ...
+  </code></pre>
+  <p>Comprobamos que está subida al repositorio:</p>
+  <pre><code>
+    $ docker search josedom24/aplicacionweb
+    NAME                     DESCRIPTION...
+    josedom24/docker_mysql   
+  </code></pre>
+</section>
