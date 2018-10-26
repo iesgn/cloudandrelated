@@ -38,7 +38,7 @@ tema: white
     <li><strong>Docker Registry</strong>: La finalidad de este componente es almacenar las imágenes generadas por el Docker Engine. Nos permite distribuir nuestras imágenes. Podemos instalar un registro privado, o hacer uso de uno público como Docker Hub.</li>
   </ul>
 </section>
-<section>
+
 <section>
   <h2>Ciclo de vida de nuestras aplicaciones en docker</h2>
 </section>
@@ -48,9 +48,10 @@ tema: white
   <p>Por lo tanto lo primero que debemos hacer es crear nuestra página web:</p>
   <pre><code data-trim data-noescape>
   $ cd public_html
-  echo "<h1>Prueba</h1>" > index.html
+  echo "&lt;h1&gt;Prueba&lt;/h1&gt;" > index.html
   </code></pre>
 </section>
+<section>
 <section>
   <h3>Paso 2: Creación de la imagen Docker</h3>
   <p>Utilizando un fichero <code>Dockerfile</code> definimos como vamos a crear nuestra imagen:</p>
@@ -109,6 +110,8 @@ tema: white
     debian                    latest              be2868bebaba        10 days ago         101MB
   </code></pre>
 </section>
+</section>
+<section>
 <section>
   <h4>Paso 3: Probamos nuestra aplicación en el entorno de desarrollo</h4>
   <p>Creamos un contenedor en nuestro entorno de desarrollo:</p>
