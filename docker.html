@@ -88,14 +88,7 @@ tema: white
     Step 1/4 : FROM debian
      ---> be2868bebaba
     Step 2/4 : RUN apt-get update -y && apt-get install -y apache2 & apt-get clean && rm -rf /var/lib/apt/lists/*
-     ---> Using cache
-     ---> 881c118ce8c7
-    Step 3/4 : COPY ./public_html /var/www/html/
-     ---> Using cache
-     ---> ef9dc76a1763
-    Step 4/4 : ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-     ---> Using cache
-     ---> 518871c9fc0c
+     ...
     Successfully built 518871c9fc0c
     Successfully tagged josedom24/aplicacionweb:v1
   </code></pre>
@@ -152,5 +145,46 @@ tema: white
 <section>
   <h5>Paso 5:Implantación de la aplicación</h5>
   <p>En el el entorno de producción, bajamos la imagen de Docker Hub y creamos el contenedor:</p>
+  <pre><code>
+    $ docker pull josedom24/aplicacionweb:v1
+    v1: Pulling from josedom24/aplicacionweb
+    9a029d5ca5bb: Pull complete 
+    ...
+    $ docker run --name aplweb_prod -d -p 80:80 josedom24/aplicacionweb:v1
+  </code></pre>
+</section>
+<section>
+<section>
+  <h4>Paso 6: Modificación de la aplicación</h4>
+  <p>Al modificar el código de la aplicación tenemos que generar una nueva imagen.</p>
+  <pre><code>
+    $ cd public_html
+    echo "&lt;h1&gt;Prueba 2&lt;/h1&gt;" > index.html
+    ...
+    $ docker build -t josedom24/aplicacionweb:v2 .
+    ...
+  </code></pre>
+  <p>Podemos probarla en el entorno de desarrollo, eliminando el contenedor anterior:</p>
+  <pre><code>
+    $ doker container rm -f aplweb
 
+    $ docker run --name aplweb2 -d -p 80:80 josedom24/aplicacionweb:v2
+  </code></pre>
+  <img src="img/docker2.png"/>
+</section>
+<section>
+  <h4>Paso 6: Modificación de la aplicación</h4>
+  <p>Subimos la nueva versión de la aplicación. En el entorno de producción: bajamos la nueva versión, eliminamos el contenedor de la versión antigua y creamos un nuevo contenedor con la nueva imagen:</p>
+  <pre><code>
+    $ docker push josedom24/aplicacionweb:v1
+    ...
+  </code></pre>
+  <p>En producción:</p>
+  <pre><code>
+    $ docker pull josedom24/aplicacionweb:v2
+    ...
+    $ doker container rm -f aplweb_prod
+    $ docker run --name aplweb2_prod -d -p 80:80 josedom24/aplicacionweb:v2
+  </code></pre>
+</section>
 </section>
