@@ -47,5 +47,4 @@ automated configuration or containers.
     - Ciclo de vida de nuestras aplicaciones en docker
     - ¿Qué nos aporta Kubernetes en el despliegue de aplicaciones?
     - Desplegando aplicaciones en Openshift
-    - [Prueba](https://iesgn.github.io/cloudandrelated/prueba.html#/)
 	
