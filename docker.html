@@ -185,7 +185,7 @@ tema: white
   </code></pre>
 </section>
 </section>
-<section></section>
+<section>
 <section>
   <h2>Construir aplicaciones sin estado(Stateless)</h2>
   <ul>
@@ -208,24 +208,70 @@ tema: white
 </section>
 <section>
   <h4>Ejemplo de almacenamiento persistente</h4>
-  <p>Si consideramos nuestra página web como los datos de nuestra aplicación, podemos crear un volumen en docker para guardar la información de <pre>/var/www</pre>, nuestro <pre>Dockerfile</pre> quedaría:</p>
-  <pre><code>
-    FROM debian
-    RUN apt-get update -y && apt-get install -y \
-        apache2 \
-        && apt-get clean && rm -rf /var/lib/apt/lists/*
-    VOLUME /var/www /var/log/apache2
-    COPY ./public_html /var/www/html/
-    ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-  </code></pre>
 </section>
-<section>
-    <h4>Ejemplo de almacenamiento persistente</h4>
-    $ docker run --name aplweb3 -d -p 80:80 prueba
-da85795e2c45fdfe32a8d0bff4c398cf609a936d42c028628805e2bfd1b4b64c
-debian@docker:~/apache2/debian$ docker volume ls
-DRIVER              VOLUME NAME
-local               a19f63bcdcb23aa0dec02005b9bb78c3a36b6b03d5364dcb974b961b9a02b7c7
+</section>
 
-</section>  
-</section>
+
+$ docker run --name some-mysql -v /opt/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=asdasd -d mysql
+75544a024f9ba4c1148aef92cfda18e41df83f45fbe13471f02b754b410cfb1a
+debian@docker:~$ cd /opt/mysql/
+debian@docker:/opt/mysql$ ls
+ibdata1  ib_logfile0  ib_logfile1  ibtmp1  #innodb_temp  mysql  mysql.ibd  undo_001  undo_002
+debian@docker:/opt/mysql$ cd
+debian@docker:~$ docker exec -it some-mysql bash
+root@75544a024f9b:/# mysql -u root -p -h localhost
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.13 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database dbtest;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> exit
+Bye
+root@75544a024f9b:/# exit
+exit
+debian@docker:~$ docker container rm -f some-mysql 
+some-mysql
+debian@docker:~$ docker run --name some-mysql2 -v /opt/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=asdasd -d mysql
+878f77d80fcf80f1e1f34876ecca240724537b26ede6cc744fd2fe8a028706f6
+debian@docker:~$ 
+debian@docker:~$ docker exec -it some-mysql2 bash
+root@878f77d80fcf:/# mysql -u root -p -h localhost
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.13 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databses;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databses' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dbtest             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.01 sec)
+
+
