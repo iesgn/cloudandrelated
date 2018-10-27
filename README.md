@@ -34,7 +34,7 @@ automated configuration or containers.
 
 * PART III
   - Introduction to IaaS
-  - Introducción a AWS
+  - Introduction to AWS
   - EC2. Linux and Windows instances
   - IAM 
   - Monitoring: use & cost
