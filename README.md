@@ -33,9 +33,15 @@ automated configuration or containers.
   - Configuration management systems: Puppet, chef, ansible y salt
 
 * PART III
-  - IaaS
-  - Public or Private: AWS, GCE, Azure and OpenStack
-  - IaaS Resources
+  - Introduction to IaaS
+  - Introducción a AWS
+  - EC2. Linux and Windows instances
+  - IAM 
+  - Monitoring: use & cost
+  - Network and Security
+  - CloudFormation
+  - AWS Educate for your school
+
 
 * PART IV
   - Containers: Systems containers like LXC vs applications containers like docker
