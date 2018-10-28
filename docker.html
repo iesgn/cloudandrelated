@@ -193,8 +193,14 @@ tema: white
     <li>Una aplicación con estado (Stateful) es aquella que necesita guardar información para su funcionamiento.</li>
     <li>Si creo una aplicación desde 0 debería construirla sin estado</li>
     <li>La mayoría de las aplicaciones actuales son Stateful.</li>
+  </ul>
+</section>
+<section>
+  <h2>Uso de volúmenes persistentes</h2>
+  <ul>
     <li>La información que se guarda en un contenedor no es persistente.</li>
     <li>Los contenedores que implementan aplicaciones Stateful deben guardar los datos en un medio de almacenamiento persistente. Desacoplamos la aplicación de los datos.</li>
+    <li>Con docker podemos gestionar volúmenes de datos, que nos permiten guardar la información en el host (almacenamiento persistente).</li>
   </ul>
 </section>
 <section>
@@ -215,7 +221,7 @@ tema: white
                  -e MYSQL_ROOT_PASSWORD=asdasd \
                  -d mysql
   </code></pre>
-  <small>Comprobamos que se ha guardado la bD en el host:</small>
+  <small>Comprobamos que se ha guardado la BD en el host:</small>
   <pre><code>
     /opt/mysql$ ls
     ibdata1  ib_logfile0  ib_logfile1  ibtmp1  #innodb_temp  mysql  mysql.ibd  undo_001  undo_002
