@@ -30,7 +30,7 @@ automated configuration or containers.
   - [Frequently used programming languages: Python, Ruby, Go](https://iesgn.github.io/cloudandrelated/languages.html#/).
   - [Version Control Systems: git](https://iesgn.github.io/cloudandrelated/control_version.html#/).
   - [Resource provisioning: Vagrant, Cloudformation, heat or terraform](https://iesgn.github.io/cloudandrelated/resource_prov.html)
-  - Configuration management systems: Puppet, chef, ansible y salt
+  - [Configuration management systems: Puppet, chef, ansible y salt](https://iesgn.github.io/cloudandrelated/conf_management.html)
 
 * PART III
   - Introduction to IaaS
