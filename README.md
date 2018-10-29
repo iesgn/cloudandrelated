@@ -9,10 +9,6 @@ of the technologies used, so it can even be considered as a previous
 course to a more specific one about IaaS, PaaS, resource provisioning,
 automated configuration or containers.
 
-## Links to sessions
-
-[Monday Oct 27](https://hangouts.google.com/hangouts/_/fniqd535jzcftk4qbn4bchdm3me)
-
 ## Presentation
 
 * [About the speakers](https://iesgn.github.io/cloudandrelated/about-speakers.html#/)
@@ -28,15 +24,6 @@ automated configuration or containers.
   - [Why clod computing must be used in IT courses?](https://youtu.be/2AMgEB2Fm3g)
 
 * PART II
-  - [Infrastructure as Code](https://iesgn.github.io/cloudandrelated/infra_as_code.html#/). [VIDEO](https://youtu.be/Jcx5sbl5teE)
-  - [DevOps (and Site Reliability Engineer)](https://iesgn.github.io/cloudandrelated/devops.html#/). [VIDEO](https://youtu.be/qE1Kqjm5FjM)
-  - [Markup Languages](https://iesgn.github.io/cloudandrelated/markup.html#/). [VIDEO](https://youtu.be/1YjjSEopeA4)
-  - [Frequently used programming languages: Python, Ruby, Go](https://iesgn.github.io/cloudandrelated/languages.html#/).
-  - [Version Control Systems: git](https://iesgn.github.io/cloudandrelated/control_version.html#/).
-  - [Resource provisioning: Vagrant, Cloudformation, heat or terraform](https://iesgn.github.io/cloudandrelated/resource_prov.html)
-  - [Configuration management systems: Puppet, chef, ansible y salt](https://iesgn.github.io/cloudandrelated/conf_management.html)
-
-* PART III
   - Introduction to IaaS
   - Introduction to AWS
   - EC2. Linux and Windows instances
@@ -47,7 +34,7 @@ automated configuration or containers.
   - AWS Educate for your school
 
 
-* PART IV
+* PART III
   - Containers: Systems containers like LXC vs applications containers like docker
   - Containers orchestration: kubernetes
   - Containers on IaaS
@@ -58,3 +45,12 @@ automated configuration or containers.
     - ¿Qué nos aporta Kubernetes en el despliegue de aplicaciones?
     - Desplegando aplicaciones en Openshift
 	
+* PART IV
+  - [Infrastructure as Code](https://iesgn.github.io/cloudandrelated/infra_as_code.html#/). [VIDEO](https://youtu.be/Jcx5sbl5teE)
+  - [DevOps (and Site Reliability Engineer)](https://iesgn.github.io/cloudandrelated/devops.html#/). [VIDEO](https://youtu.be/qE1Kqjm5FjM)
+  - [Markup Languages](https://iesgn.github.io/cloudandrelated/markup.html#/). [VIDEO](https://youtu.be/1YjjSEopeA4)
+  - [Frequently used programming languages: Python, Ruby, Go](https://iesgn.github.io/cloudandrelated/languages.html#/).
+  - [Version Control Systems: git](https://iesgn.github.io/cloudandrelated/control_version.html#/).
+  - [Resource provisioning: Vagrant, Cloudformation, heat or terraform](https://iesgn.github.io/cloudandrelated/resource_prov.html)
+  - [Configuration management systems: Puppet, chef, ansible y salt](https://iesgn.github.io/cloudandrelated/conf_management.html)
+
