@@ -29,7 +29,7 @@ automated configuration or containers.
   - [Markup Languages](https://iesgn.github.io/cloudandrelated/markup.html#/). [VIDEO](https://youtu.be/1YjjSEopeA4)
   - [Frequently used programming languages: Python, Ruby, Go](https://iesgn.github.io/cloudandrelated/languages.html#/).
   - [Version Control Systems: git](https://iesgn.github.io/cloudandrelated/control_version.html#/).
-  - Resurce provisioning: Vagrant, Cloudformation, heat or terraform
+  - Resource provisioning: Vagrant, Cloudformation, heat or terraform
   - Configuration management systems: Puppet, chef, ansible y salt
 
 * PART III
