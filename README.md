@@ -9,6 +9,10 @@ of the technologies used, so it can even be considered as a previous
 course to a more specific one about IaaS, PaaS, resource provisioning,
 automated configuration or containers.
 
+## Links to sessions
+
+[Monday Oct 27](https://hangouts.google.com/hangouts/_/fniqd535jzcftk4qbn4bchdm3me)
+
 ## Presentation
 
 * [About the speakers](https://iesgn.github.io/cloudandrelated/about-speakers.html#/)
