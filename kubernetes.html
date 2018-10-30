@@ -1,0 +1,106 @@
+---
+layout: presentacion
+title: ¿Qué nos aporta Kubernetes en el despliegue de aplicaciones?
+tema: white
+---
+<section>
+  <h2>¿Qué nos aporta Kubernetes en el despliegue de aplicaciones?</h2>
+    <p>
+    Alberto Molina Coballes, José Luis Rodríguez Rodríguez and José Domingo Muñoz Rodríguez
+  </p>
+  <p><small>Cloud Computing in European schools. Project: 2017-1-ES01-KA202-038471</small></p>
+  <p><img src="img/UE.png" width="250px" border="0"/>
+    <img src="img/iesvalleinclan.png" width="250px" border="0"/>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+
+<section>
+  <h3>Kubernetes</h3>
+  <p>Kubernetes es un orquestador de contenedores de aplicación escrito en Go y con licencia Apache-2.0, fue lanzado el 21 de julio de 2015 por Google que rápidamente se alió con la Linux Foundation para crear la Cloud Native Computing Foundation (CNCF) y dejó el proyecto en sus manos. </p>
+  <p>Gestionamos un cluster:</p>
+  <pre><code>
+kubectl get nodes
+NAME     STATUS   ROLES    AGE     VERSION
+nodo-1   Ready    master   2m32s   v1.12.2
+nodo-2   Ready    &lt;none&gt;   42s     v1.12.2
+nodo-3   Ready    &lt;none&gt;   42s     v1.12.2
+ </code></pre>
+</section>
+<section>
+<section>
+  <h3>Recursos de Kubernetes</h3>
+  <img src="img/kubernetes1.png"/>
+</section>
+<section>
+  <h3>¿Qué nos aportan cada uno de los recursos de Kubernetes? (I)</h3>
+  <ul>
+    <li><strong>Pods</strong>: La unidad mínima de computación, permite ejecutar contenedores. Representa un conjunto de contenedores y almacenamiento compartido que comparte una única IP.</li>
+    <li><strong>ReplicaSet</strong>: Asegura que siempre se ejecute un número de replicas de un pod determinado. Nos proporciona las siguientes características:
+      <ul>
+        <li>Que no haya caída del servicio</li>
+        <li>Tolerancia a errores</li>
+        <li>Escabilidad dinámica</li>
+      </ul>
+  </li>
+  </ul>
+</section>
+<section>
+  <h3>¿Qué nos aportan cada uno de los recursos de Kubernetes? (II)</h3>
+  <ul>
+    <li><strong>Deployment</strong>: Nos permite manejar los <em>ReplicaSets</em>. Nos proporciona las siguientes características:
+      <ul>
+        <li>Actualizaciones continúas</li>
+        <li>Despliegues automáticos</li>
+      </ul>
+  </li>
+  <li>
+    <strong>Service</strong>: Nos permite el acceso a los pod.
+  </li>
+  <li>
+    <strong>Ingress</strong>: Nos permite implementar un proxy inverso para el acceso a los distintos servicios establecidos. Estos dos elementos nos proporcionan la siguiente funcionalidad:
+    <ul>
+      <li>Balanceo de carga</li>
+    </ul>
+  </li>
+  </ul>
+</section>
+<section>
+  <h3>¿Qué nos aportan cada uno de los recursos de Kubernetes? (III)</h3>
+  <ul>
+    <li>Otros recursos de un cluster Kubernetes nos pueden proporcional características adicionales:
+    <ul>
+      <li>Migraciones sencillas</li>
+      <li>Monitorización</li>
+      <li>Control de acceso basada en Roles</li>
+      <li>Integración y despliegue continuo</li>
+    </ul>
+  </li>
+  </ul>
+</section>
+</section>
+<section>
+  <h3>Ejemplo: Tolerancia a fallos</h3>
+</section>
+<section>
+  <h3>Ejemplo: Escabilidad</h3>
+</section>
+<section>
+  <h3>Ejemplo: Actualizaciones continúas</h3>
+</section>
+<section>
+  <h3>Ejemplo: Rollback de nuestra aplicación</h3>
+</section>
+<section>
+  <h3>Ejemplo: Accediendo a nuestra aplicación</h3>
+</section>
+<section>
+  <h3>Ejemplo: Enrutando nuestras aplicaciones. Balanceo de carga</h3>
+</section>
+<section>
+  <h3>Ejemplo: Volúmenes persistentes en Kubernetes</h3>
+</section>
