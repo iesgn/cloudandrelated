@@ -24,8 +24,8 @@ automated configuration or containers.
   - [Why clod computing must be used in IT courses?](https://youtu.be/2AMgEB2Fm3g)
 
 * PART II
-  - Introduction to IaaS
-  - Introduction to AWS
+  - [Introduction to IaaS](https://docs.google.com/presentation/d/1tDEP7feT8W3yNYI9OKzA8k_Ny7r4NtjSREwLEbAuc5U/edit?usp=sharing)
+  - [Introduction to AWS](https://docs.google.com/presentation/d/1yJaswHGcXeO7HXIrSCSTG5aFPAS6zwdNDQBCDwW9N9s/edit?usp=sharing)
   - EC2. Linux and Windows instances
   - IAM 
   - Monitoring: use & cost
