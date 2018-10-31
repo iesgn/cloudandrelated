@@ -25,8 +25,8 @@ automated configuration or containers.
 
 * PART II
   - [INSTRUCTIONS](https://iesgn.github.io/cloudandrelated/iaas-intructions.html#/)
-  - [Introduction to IaaS](https://docs.google.com/presentation/d/1tDEP7feT8W3yNYI9OKzA8k_Ny7r4NtjSREwLEbAuc5U/edit?usp=sharing)
-  - [Introduction to AWS](https://docs.google.com/presentation/d/1yJaswHGcXeO7HXIrSCSTG5aFPAS6zwdNDQBCDwW9N9s/edit?usp=sharing)
+  - [Introduction to IaaS](https://drive.google.com/file/d/1C1_ATJWkIxHGUcxKixiYU1XkzlKEsmpS/view?usp=sharing)
+  - [Introduction to AWS](https://drive.google.com/file/d/13HJBw-XdbiLjueW3f04iEAqh_5rwHooI/view?usp=sharing)
   - EC2. Linux and Windows instances
   - IAM 
   - Monitoring: use & cost
