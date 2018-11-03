@@ -24,7 +24,7 @@ automated configuration or containers.
   - [Why clod computing must be used in IT courses?](https://youtu.be/2AMgEB2Fm3g)
 
 * PART II
-  - [Instrucciones](https://iesgn.github.io/cloudandrelated/iaas-intructions.html#/)
+  - [Instructions](https://iesgn.github.io/cloudandrelated/iaas-intructions.html#/)
   - [Activities](https://docs.google.com/presentation/d/1kNtrR-iPgkeAsoJ_lsEvEV7w5N-i82kv85DpThmjqFw/edit?usp=sharing)
   - Contents
     + [Introduction to IaaS](https://drive.google.com/file/d/1C1_ATJWkIxHGUcxKixiYU1XkzlKEsmpS/view?usp=sharing)
