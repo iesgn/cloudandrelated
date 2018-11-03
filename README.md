@@ -28,7 +28,7 @@ automated configuration or containers.
   - [Introduction to IaaS](https://drive.google.com/file/d/1C1_ATJWkIxHGUcxKixiYU1XkzlKEsmpS/view?usp=sharing)
   - [Introduction to AWS](https://drive.google.com/file/d/13HJBw-XdbiLjueW3f04iEAqh_5rwHooI/view?usp=sharing)
   - [EC2. Linux and Windows instances](https://drive.google.com/file/d/14IZ926uIpykP6y0UPJ5byVhIbiWZfjF7/view?usp=sharing) 
-    + VIDEOS:[SSH](https://www.youtube.com/watch?v=RjLilrIdHbY) [Linux instance](https://www.youtube.com/watch?v=G0FuJD9Udcw)
+    + VIDEOS:  [SSH]  (https://www.youtube.com/watch?v=RjLilrIdHbY)   [Linux instance](https://www.youtube.com/watch?v=G0FuJD9Udcw)
 
   - IAM 
   - Monitoring: use & cost
