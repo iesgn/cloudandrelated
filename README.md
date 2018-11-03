@@ -24,11 +24,16 @@ automated configuration or containers.
   - [Why clod computing must be used in IT courses?](https://youtu.be/2AMgEB2Fm3g)
 
 * PART II
-  - [INSTRUCTIONS](https://iesgn.github.io/cloudandrelated/iaas-intructions.html#/)
-  - [Introduction to IaaS](https://drive.google.com/file/d/1C1_ATJWkIxHGUcxKixiYU1XkzlKEsmpS/view?usp=sharing)
-  - [Introduction to AWS](https://drive.google.com/file/d/13HJBw-XdbiLjueW3f04iEAqh_5rwHooI/view?usp=sharing)
-  - [EC2. Linux and Windows instances](https://drive.google.com/file/d/14IZ926uIpykP6y0UPJ5byVhIbiWZfjF7/view?usp=sharing) 
-    + VIDEOS:[1.-SSH](https://www.youtube.com/watch?v=RjLilrIdHbY)   [2.-Linux instance](https://www.youtube.com/watch?v=G0FuJD9Udcw)
+  - [Intrucciones](https://iesgn.github.io/cloudandrelated/iaas-intructions.html#/)
+  - [Activities](https://docs.google.com/presentation/d/1kNtrR-iPgkeAsoJ_lsEvEV7w5N-i82kv85DpThmjqFw/edit?usp=sharing)
+  - Vídeos:
+    + [1.-SSH](https://www.youtube.com/watch?v=RjLilrIdHbY)   
+    + [2.-Linux instance](https://www.youtube.com/watch?v=G0FuJD9Udcw)
+  - Contents
+    + [Introduction to IaaS](https://drive.google.com/file/d/1C1_ATJWkIxHGUcxKixiYU1XkzlKEsmpS/view?usp=sharing)
+    + [Introduction to AWS](https://drive.google.com/file/d/13HJBw-XdbiLjueW3f04iEAqh_5rwHooI/view?usp=sharing)
+    + [EC2. Linux and Windows instances](https://drive.google.com/file/d/14IZ926uIpykP6y0UPJ5byVhIbiWZfjF7/view?usp=sharing) 
+    
 
   - IAM 
   - Monitoring: use & cost
