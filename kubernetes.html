@@ -217,8 +217,46 @@ pagweb-7f6d9648fc-r8vql   1/1     Terminating   0          8m55s
 </section>
 </section>
 <section>
+<section>
   <h3>Ejemplo: Enrutando nuestras aplicaciones.</h3>
 </section>
 <section>
+  <ul><li>El recurso Ingress Controller nos ofrece un proxy inverso, que por medio de reglas de encaminamiento nos permite el acceso a nuestras aplicaciones por medio de nombres.</li></ul>
+  <ul><li>Necesitamos un fichero de configuración <code>ingress.yaml</code></li></ul>
+  <pre><code>
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: pagweb
+spec:
+  rules:
+  - host: pagweb.172.22.200.165.nip.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: pagweb
+          servicePort: 80
+  
+  </code></pre>
+</section>
+<section>
+  <ul><li>Y ahora creamos el recurso ingress:</li></ul>
+  <pre><code>
+kubectl create -f ingress.yaml 
+ingress.extensions/pagweb created
+
+kubectl get ingress
+NAME     HOSTS                          ADDRESS   PORTS   AGE
+pagweb   pagweb.172.22.200.165.nip.io             80      6s
+ </code></pre>
+</section>
+<section>
+  <ul><li>Y podemos acceder a nuestra aplicación por medio del nombre que hemos asignado:</li></ul>
+  <img src="img/kubernetes4.png"></img>
+</section>
+</section>
+<section>
+  
   <h3>Ejemplo: Volúmenes persistentes en Kubernetes</h3>
 </section>
