@@ -191,10 +191,30 @@ pagweb-7f6d9648fc-r8vql   1/1     Running       0          5s
 </section>
 </section>
 <section>
+<section>
   <h3>Ejemplo: Rollback de nuestra aplicación</h3>
 </section>
 <section>
-  <h3>Ejemplo: Accediendo a nuestra aplicación</h3>
+  <ul><li>Si por cualquier motivo quiero volver a la versión anterior de nuestro despliegue:</li></ul>
+  <pre><code>
+kubectl rollout undo deployment/pagweb
+deployment.extensions/pagweb
+
+kubectl get pods
+NAME                      READY   STATUS        RESTARTS   AGE
+pagweb-5d756cb86-d4tn4    1/1     Running       0          12s
+pagweb-5d756cb86-fvrfc    1/1     Running       0          6s
+pagweb-5d756cb86-g6wsc    1/1     Running       0          9s
+pagweb-7f6d9648fc-6kzf4   1/1     Terminating   0          8m58s
+pagweb-7f6d9648fc-bhb2z   1/1     Terminating   0          8m52s
+pagweb-7f6d9648fc-r8vql   1/1     Terminating   0          8m55s
+</code></pre>
+</section>
+<section>
+  <ul><li>Y volveríamos tener la versióna nterior de nuestra aplicación:</li></ul>
+  <img src="img/kubernetes2.png"></img>
+  <ul><li>Tenemos un historial de versiones de nuestro despliegues y podemos volver a un estado anterior cuando lo necesitemos.</li></ul>
+</section>
 </section>
 <section>
   <h3>Ejemplo: Enrutando nuestras aplicaciones.</h3>
