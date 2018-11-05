@@ -272,6 +272,21 @@ nfs-pv   5Gi        RWX            Recycle          Available                   
 <section>
   <ul><li>Debemos reservar espacio en el PersistentVolumen, creando un recurso PersistentVolumenClaim, para ello utilizamos el fichero pvc.yaml:</li></ul>
 <pre><code>
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+</code></pre>
+</section>
+<section>
+<pre><code>
 kubectl create -f pvc.yaml 
 persistentvolumeclaim/nfs-pvc created
 
