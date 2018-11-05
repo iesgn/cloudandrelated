@@ -130,7 +130,7 @@ pagweb-5d756cb86   1         1         1       5m
   <h3>Ejemplo: Escabilidad</h3>
 </section>
 <section>
-  <ul><li>El recurso ReplicaSet también es el responsable de las replicas. En cualquier podemos escalar el número de pods:</li></ul>
+  <ul><li>ReplicaSet también es el responsable de las replicas. En cualquier podemos escalar el número de pods:</li></ul>
 <pre><code>
 kubectl scale deploy pagweb --replicas=3
 deployment.extensions/pagweb scaled
@@ -146,6 +146,28 @@ pagweb-5d756cb86-wppxj   1/1     Running   0          17s   10.36.0.2   nodo-3  
 </section>
 </section>
 <section>
+<section>
+    <h3>Ejemplo: Accediendo a nuestra aplicación. Balanceo de carga</h3>
+</section>
+<section>
+  <ul><li>Para acceder a nuestra aplicación debemos crear un recurso Service:</li></ul>
+  <pre><code>
+kubectl expose deployment pagweb --port=80 --type=NodePort
+service/pagweb exposed
+
+kubectl get services
+NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+...
+pagweb       NodePort    10.98.140.134   <none>        80:30848/TCP   18s
+</code></pre>
+</section>
+<section>
+  <ul><li>Podemos acceder a la IP del nodo master, al puerto 30848:</li></ul>
+  <img src="img/kubernetes2.png"></img>
+  <ul><li>Cada vez que accedemos a la aplicación se está accediendo a uno de los 3 pods que hemos creado. (Balanceo de carga)</li></ul>
+</section>
+</section>
+<section>
   <h3>Ejemplo: Actualizaciones continúas</h3>
 </section>
 <section>
@@ -155,7 +177,7 @@ pagweb-5d756cb86-wppxj   1/1     Running   0          17s   10.36.0.2   nodo-3  
   <h3>Ejemplo: Accediendo a nuestra aplicación</h3>
 </section>
 <section>
-  <h3>Ejemplo: Enrutando nuestras aplicaciones. Balanceo de carga</h3>
+  <h3>Ejemplo: Enrutando nuestras aplicaciones.</h3>
 </section>
 <section>
   <h3>Ejemplo: Volúmenes persistentes en Kubernetes</h3>
