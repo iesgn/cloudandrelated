@@ -136,10 +136,10 @@ deployment.extensions/pagweb scaled
 <ul><li>Y podemos comprobar que se han creado 3 pods ejecutándose en distintos nodos:</li></ul>
 <pre><code>
 kubectl get pod -o wide
-NAME                     READY   STATUS    RESTARTS   AGE   IP          NODE     NOMINATED NODE
-pagweb-5d756cb86-2w2xq   1/1     Running   0          7m   10.42.0.2   nodo-2   <none>
-pagweb-5d756cb86-gwfgf   1/1     Running   0          17s   10.36.0.1   nodo-3   <none>
-pagweb-5d756cb86-wppxj   1/1     Running   0          17s   10.36.0.2   nodo-3   <none>
+NAME                     READY   STATUS    ...     NODE   ...
+pagweb-5d756cb86-2w2xq   1/1     Running   ...   nodo-2   ...
+pagweb-5d756cb86-gwfgf   1/1     Running   ...   nodo-3   ...
+pagweb-5d756cb86-wppxj   1/1     Running   ...   nodo-3   ...
 </code></pre>
 </section>
 </section>
