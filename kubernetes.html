@@ -166,7 +166,29 @@ pagweb       NodePort    10.98.140.134   &lt;none&gt;        80:30848/TCP   18s
 </section>
 </section>
 <section>
+<section>
   <h3>Ejemplo: Actualizaciones continúas</h3>
+</section>
+<section>
+  <ul><li>Podemos modificar nuestro despliegue para actualizar a la última versión de nuestra aplicación. Comprobamos que se crean 3 nuevos pods con la última versión de nuestra aplicación:</li></ul>
+  <pre><code>
+kubectl set image deployment pagweb pagweb=josedom24/aplicacionweb:v2
+deployment.extensions/pagweb image updated
+
+kubectl get pods
+NAME                      READY   STATUS        RESTARTS   AGE
+pagweb-5d756cb86-2w2xq    1/1     Terminating   0          25m
+pagweb-5d756cb86-gwfgf    1/1     Terminating   0          21m
+pagweb-5d756cb86-wppxj    1/1     Terminating   0          21m
+pagweb-7f6d9648fc-6kzf4   1/1     Running       0          8s
+pagweb-7f6d9648fc-bhb2z   1/1     Running       0          2s
+pagweb-7f6d9648fc-r8vql   1/1     Running       0          5s
+</code></pre>
+</section>
+<section>
+  <ul><li>Y podemos acceder a la nueva versión de nuestra aplicación:</li></ul>
+  <img src="img/kubernetes3.png"></img>
+</section>
 </section>
 <section>
   <h3>Ejemplo: Rollback de nuestra aplicación</h3>
