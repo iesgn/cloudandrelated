@@ -84,7 +84,31 @@ nodo-3   Ready    &lt;none&gt;   42s     v1.12.2
 </section>
 </section>
 <section>
+<section>
   <h3>Ejemplo: Tolerancia a fallos</h3>
+</section>
+<section>
+  <ul><li>Creamos un despliegue a partir de la imagen <code>josedom24/aplicacionweb:v1</section></li></ul>
+    <pre><code>
+kubectl run pagweb --image josedom24/aplicacionweb:v1
+<pre><code>
+  <ul><li>Comprobamos que se ha creado un pod:</li></ul>
+<pre><code>
+kubectl get pod
+NAME                     READY   STATUS    RESTARTS   AGE
+pagweb-5d756cb86-wm4zg   1/1     Running   0          3m7s
+<ul><li>Si por cualquier motivo el pod deja de funcionar, comprobamos que Kubernetes vuelve a crear un nuevo pod:</li></ul>    
+<pre><code>
+kubectl delete pod/pagweb-5d756cb86-wm4zg
+pod "pagweb-5d756cb86-wm4zg" deleted
+
+kubectl get pod
+NAME                     READY   STATUS        RESTARTS   AGE
+pagweb-5d756cb86-2w2xq   1/1     Running       0          21s
+pagweb-5d756cb86-wm4zg   1/1     Terminating   0          4m56s
+</code></pre>
+</code></pre>
+</section>
 </section>
 <section>
   <h3>Ejemplo: Escabilidad</h3>
