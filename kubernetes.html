@@ -98,6 +98,7 @@ kubectl get pod
 NAME                     READY   STATUS    RESTARTS   AGE
 pagweb-5d756cb86-wm4zg   1/1     Running   0          3m7s
 </code></pre>
+</section>
 <section>
 <ul><li>Si por cualquier motivo el pod deja de funcionar, comprobamos que Kubernetes vuelve a crear un nuevo pod:</li></ul>    
 <pre><code>
@@ -122,7 +123,7 @@ pagweb-5d756cb86   1         1         1       5m
 <ul><li>El recurso ReplicaSet es el responsable de este funcionamiento.</li></ul>
 </section>
 </section>
-</section>
+
 <section>
   <h3>Ejemplo: Escabilidad</h3>
 </section>
