@@ -123,9 +123,25 @@ pagweb-5d756cb86   1         1         1       5m
 <ul><li>El recurso ReplicaSet es el responsable de este funcionamiento.</li></ul>
 </section>
 </section>
-
+<section>
 <section>
   <h3>Ejemplo: Escabilidad</h3>
+</section>
+<section>
+  <ul><li>El recurso rEplicaSet también es el responsable de las replicas. En cualquier podemos escalar el número de pods:</li></ul>
+<pre><code>
+kubectl scale deploy pagweb --replicas=3
+deployment.extensions/pagweb scaled
+</code></pre>
+<ul><li>Y podemos comprobar que se han creado 3 pods ejecutándose en distintos nodos:</li></ul>
+<pre><code>
+kubectl get pod -o wide
+NAME                     READY   STATUS    RESTARTS   AGE   IP          NODE     NOMINATED NODE
+pagweb-5d756cb86-2w2xq   1/1     Running   0          7m   10.42.0.2   nodo-2   <none>
+pagweb-5d756cb86-gwfgf   1/1     Running   0          17s   10.36.0.1   nodo-3   <none>
+pagweb-5d756cb86-wppxj   1/1     Running   0          17s   10.36.0.2   nodo-3   <none>
+</code></pre>
+</section>
 </section>
 <section>
   <h3>Ejemplo: Actualizaciones continúas</h3>
