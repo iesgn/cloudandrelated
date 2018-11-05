@@ -109,6 +109,16 @@ NAME                     READY   STATUS        RESTARTS   AGE
 pagweb-5d756cb86-2w2xq   1/1     Running       0          21s
 pagweb-5d756cb86-wm4zg   1/1     Terminating   0          4m56s
 </code></pre>
+<ul><li>Además del pod se ha creado un recurso Deployment y otro ReplicaSet:</li></ul>
+<pre><code>
+kubectl get deploy
+NAME     DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+pagweb   1         1         1            1           5m
+
+kubectl get rs
+NAME               DESIRED   CURRENT   READY   AGE
+pagweb-5d756cb86   1         1         1       5m
+</code></pre>
 <ul><li>El recurso ReplicaSet es el responsable de este funcionamiento.</li></ul>
 </section>
 </section>
