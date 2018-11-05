@@ -91,7 +91,7 @@ nodo-3   Ready    &lt;none&gt;   42s     v1.12.2
   <ul><li>Creamos un despliegue a partir de la imagen <code>josedom24/aplicacionweb:v1</code></li></ul>
     <pre><code>
 kubectl run pagweb --image josedom24/aplicacionweb:v1
-    </code></pre>
+    </code></pre><br/>
   <ul><li>Comprobamos que se ha creado un pod:</li></ul>
 <pre><code>
 kubectl get pod
@@ -110,6 +110,8 @@ NAME                     READY   STATUS        RESTARTS   AGE
 pagweb-5d756cb86-2w2xq   1/1     Running       0          21s
 pagweb-5d756cb86-wm4zg   1/1     Terminating   0          4m56s
 </code></pre>
+</section>
+<section>
 <ul><li>Además del pod se ha creado un recurso Deployment y otro ReplicaSet:</li></ul>
 <pre><code>
 kubectl get deploy
@@ -128,7 +130,7 @@ pagweb-5d756cb86   1         1         1       5m
   <h3>Ejemplo: Escabilidad</h3>
 </section>
 <section>
-  <ul><li>El recurso rEplicaSet también es el responsable de las replicas. En cualquier podemos escalar el número de pods:</li></ul>
+  <ul><li>El recurso ReplicaSet también es el responsable de las replicas. En cualquier podemos escalar el número de pods:</li></ul>
 <pre><code>
 kubectl scale deploy pagweb --replicas=3
 deployment.extensions/pagweb scaled
