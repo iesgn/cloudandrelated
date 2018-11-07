@@ -24,7 +24,17 @@ automated configuration or containers.
   - [Why clod computing must be used in IT courses?](https://youtu.be/2AMgEB2Fm3g)
 
 * PART II
-
+  - [Instructions](https://iesgn.github.io/cloudandrelated/iaas-intructions.html#/)
+  - [Activities](https://docs.google.com/presentation/d/1kNtrR-iPgkeAsoJ_lsEvEV7w5N-i82kv85DpThmjqFw/edit?usp=sharing)
+  - Contents
+    + [Introduction to IaaS](https://drive.google.com/file/d/1C1_ATJWkIxHGUcxKixiYU1XkzlKEsmpS/view?usp=sharing)
+    + [Introduction to AWS](https://drive.google.com/file/d/13HJBw-XdbiLjueW3f04iEAqh_5rwHooI/view?usp=sharing)
+    + [EC2. Linux and Windows instances](https://drive.google.com/file/d/14IZ926uIpykP6y0UPJ5byVhIbiWZfjF7/view?usp=sharing)  [**VIDEO.-SSH**](https://www.youtube.com/watch?v=RjLilrIdHbY)    [**VIDEO-Linux instance**](https://www.youtube.com/watch?v=G0FuJD9Udcw)
+  - [IAM](https://drive.google.com/file/d/1VtM1GYBuHBGkDIGpAr6vhG2_Xxr_Azmr/view?usp=sharing) 
+  - Monitoring: use & cost
+  - Network and Security
+  - CloudFormation
+  - AWS Educate for your school
 
 
 * PART III
