@@ -1,0 +1,67 @@
+---
+layout: presentacion
+title: Desplegando aplicaciones en Openshift
+tema: white
+---
+<section>
+  <h2>Desplegando aplicaciones en Openshift</h2>
+  <p>
+    Alberto Molina Coballes, José Luis Rodríguez Rodríguez and José Domingo Muñoz Rodríguez
+  </p>
+  <p><small>Cloud Computing in European schools. Project: 2017-1-ES01-KA202-038471</small></p>
+  <p><img src="img/UE.png" width="250px" border="0"/>
+    <img src="img/iesvalleinclan.png" width="250px" border="0"/>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+<section>
+<section>
+  <h3>Ventajas de OpenShift v3 para el despliegue de aplicaciones</h3>
+</section>
+<section>
+  <h4>Ventajas de OpenShift v3 para el despliegue de aplicaciones</h4>
+  <ul>
+    <li>Simplifica el ciclo de vida de implantación de nuestras aplicaciones que nos ofrece Docker.</li>
+    <ul>
+      <li>El desarrollador sólo se tiene que centrar en el desarrollo de su aplicación.</li>
+      <li>El proyecto se guardará en un repositorio GitHub</li>
+      <li>A la hora de desplegar la aplicación, OpenShift leerá el código fuente del repositorio GitHub</li>
+      <li>E inyectará el código fuente en una imagen base de Docker (diferencias según el lenguaje de programación) creando una nueva imagen de forma automática.</li>
+      <li><strong><a href="https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/builds_and_image_streams.html#source-build">source2image</a></strong></li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h4>Ventajas de OpenShift v3 para el despliegue de aplicaciones</h4>
+  <ul>
+    <li>Nos ofrece todas las ventajas del uso de Kubernetes:</li>
+    <ul>
+        <li>Tolerancia a errores</li>
+        <li>Escabilidad dinámica</li>
+        <li>Actualizaciones continúas</li>
+        <li>Despliegues automáticos</li>
+        <li>Enrutamiento a nuestras aplicaciones</li>
+        <li>Balanceo de carga</li>
+    </ul>
+    <li>Pero además...</li>
+  </ul>
+</section>
+<section>
+    <h4>Ventajas de OpenShift v3 para el despliegue de aplicaciones</h4>
+    <ul>
+      <li>OpenShift nos ofrece una serie de extras:</li>
+      <ul>
+        <li>Gestión más sencilla de proyectos y usuarios</li>
+        <li>Conjunto de imágenes base para distintos lenguajes de programación y base de datos</li>
+        <li>Asignación automática de nombre para nuestra aplicación (recurso service y ingress controller)</li>
+        <li>Flujos de CI/CD integradas</li>
+        <li>Herramientas de métrica y monitorización</li>
+      </ul>
+      
+    </ul>
+</section>
+</section>
