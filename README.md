@@ -33,7 +33,6 @@ automated configuration or containers.
     + [IAM](https://drive.google.com/file/d/1VtM1GYBuHBGkDIGpAr6vhG2_Xxr_Azmr/view?usp=sharing) 
     + [Monitoring: use & cost](https://drive.google.com/file/d/1YzDzj5tz2Zq6G9rK1K_YQVNwcFoCsbJf/view?usp=sharing)
   - Network and Security
-  - CloudFormation
   - AWS Educate for your school
 
 
