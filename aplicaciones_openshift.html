@@ -46,6 +46,7 @@ tema: white
         <li>Despliegues automáticos</li>
         <li>Enrutamiento a nuestras aplicaciones</li>
         <li>Balanceo de carga</li>
+        <li>Volúmenes persistentes</li>
     </ul>
     <li>Pero además...</li>
   </ul>
@@ -56,12 +57,37 @@ tema: white
       <li>OpenShift nos ofrece una serie de extras:</li>
       <ul>
         <li>Gestión más sencilla de proyectos y usuarios</li>
-        <li>Conjunto de imágenes base para distintos lenguajes de programación y base de datos</li>
+        <li>Conjunto de imágenes base para distintos lenguajes de programación y bases de datos</li>
         <li>Asignación automática de nombre para nuestra aplicación (recurso service y ingress controller)</li>
+        <li>Gestión más sencilla de los volúmenes</li>
         <li>Flujos de CI/CD integradas</li>
         <li>Herramientas de métrica y monitorización</li>
       </ul>
       
     </ul>
+</section>
+</section>
+<section>
+<section>
+  <h4>Recursos que nos ofrece OpenShift</h4>
+  <ul>
+    <li><strong>Proyectos</strong>: Permiten a los usuarios organizar y controlar sus aplicaciones.</li>
+    <li><strong>Aplicación</strong>: Nuestra aplicaciónes una aplicación Kubernetes, por los están formada por distintos recursos: deployment, pods, service, routes</li>
+    <li><strong>Builds</strong>: Es el proceso por el que se crea la imagen desde la que se va a crear nuestra aplicación. Tenemos muchas estratégias:</li>
+    <ul>
+      <li>Desde una imagen, desde un fichero Dockerfile, ...</li>
+      <li>source2image:  Se crea una nueva imagen, inyectando el código de nuestra aplicación en una imagen base de un contenedor Docker y ensamblando una nueva imagen.</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h4>Recursos que nos ofrece OpenShift</h4>
+  <ul>
+    <li>
+      <li><strong>Registro de imágenes</strong>: Las imágenes que se crean en los builds se guardan en un registro interno.</li>
+      <li><strong>Routes</strong>: Se asocia automática una ruta (nombre) para acceder a cada aplicación.</li>
+      <li><strong>Catálogo de servicios</strong>: Conjunto de imágenes bases. A partir de estas imágenes podemos construir (builds) nuevas imágenes con s2i.</li>
+ 
+  </ul>
 </section>
 </section>
