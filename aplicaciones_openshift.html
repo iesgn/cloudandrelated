@@ -85,11 +85,46 @@ tema: white
 <section>
   <h4>Recursos que nos ofrece OpenShift</h4>
   <ul>
-  
       <li><strong>Registro de imágenes</strong>: Las imágenes que se crean en los builds se guardan en un registro interno.</li>
       <li><strong>Routes</strong>: Se asocia automática una ruta (nombre) para acceder a cada aplicación.</li>
       <li><strong>Catálogo de servicios</strong>: Conjunto de imágenes y plantillas bases. A partir de ellas podemos construir (builds) nuevas imágenes con s2i.</li>
- 
+      <li><strong>Web Console</strong>: Aplicación web que nos permite trabajar con nuestros recursos de OpenShift</li>
+      <li><strong>cli oc</strong>:Herramienta de línea de comandos que nos permite trabajar con nuestros recursos de OpenShift</li>
   </ul>
 </section>
+</section>
+<section>
+<section>
+  <h4>Creamos nuestra primera aplicación</h4>
+  <ul>
+    <li>Vamos a crear una aplicación web estática con un servidor web apache2.</li>
+    <li>Nuestra página la tenemos en un repositorio de GitHub</li>
+    <li>Vamos a crear nuestra aplicación usando source2image: al crear la aplicación vamos a escoger una imagen con apache2 y vamos a indicar nuestro repositorio con el código, a partir de esta información se va a crear una imagen docker con apache2 y nuestro código que va a servir para desplegar la aplicación.</li>
+  </ul>
+</section>
+<section>
+  <h4>Creamos nuestra primera aplicación</h4>
+  <p>Del catalogo elegimos la imagen de apache2:</p>
+  <img src="img/openshift1.png"/>
+</section>
+<section>
+    <h4>Creamos nuestra primera aplicación</h4>
+    <p>Indicamos un nombre y el repositorio donde tenemos nuestro código:</p>
+    <img src="img/openshift2.png"/>
+  </section>
+  <section>
+      <h4>Creamos nuestra primera aplicación</h4>
+      <p>Se va a crear un build:</p>
+      <ul>
+        <li>Se crea un pod a partir de la imagen de apache2 seleccionada.</li>
+        <li>Se inyecta en ese pod el código del repositorio.</li>
+        <li>Y se crea una nueva imagen con apache2 y nuestra aplicación.</li>
+      </ul>
+  </section>
+  <section>
+      <img src="img/openshift3.png"/>
+      <img src="img/openshift4.png"/>
+      <img src="img/openshift5.png"/>
+  </section>    
+  
 </section>
