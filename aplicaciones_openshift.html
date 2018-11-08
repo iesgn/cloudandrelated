@@ -76,17 +76,19 @@ tema: white
     <li><strong>Builds</strong>: Es el proceso por el que se crea la imagen desde la que se va a crear nuestra aplicación. Tenemos muchas estratégias:</li>
     <ul>
       <li>Desde una imagen, desde un fichero Dockerfile, ...</li>
-      <li>source2image:  Se crea una nueva imagen, inyectando el código de nuestra aplicación en una imagen base de un contenedor Docker y ensamblando una nueva imagen.</li>
+      <li>source2image</li>
+      <li>Pipeline de Jenkins</li>
+      <li>...</li>
     </ul>
   </ul>
 </section>
 <section>
   <h4>Recursos que nos ofrece OpenShift</h4>
   <ul>
-    <li>
+  
       <li><strong>Registro de imágenes</strong>: Las imágenes que se crean en los builds se guardan en un registro interno.</li>
       <li><strong>Routes</strong>: Se asocia automática una ruta (nombre) para acceder a cada aplicación.</li>
-      <li><strong>Catálogo de servicios</strong>: Conjunto de imágenes bases. A partir de estas imágenes podemos construir (builds) nuevas imágenes con s2i.</li>
+      <li><strong>Catálogo de servicios</strong>: Conjunto de imágenes y plantillas bases. A partir de ellas podemos construir (builds) nuevas imágenes con s2i.</li>
  
   </ul>
 </section>
