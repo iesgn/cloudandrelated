@@ -104,50 +104,28 @@ tema: white
 </section>
 <section>
   <h4>Creamos nuestra primera aplicación</h4>
-  <p>Del catalogo elegimos la imagen de apache2:</p>
-  <img src="img/openshift1.png"/>
+  <ol>
+  <li>Del catalogo elegimos la imagen de apache2</li>
+  <li>Indicamos un nombre y el repositorio donde tenemos nuestro código</li>
+  <li>Se va a crear un build:</li>
+  <ul>
+    <li>Se crea un pod a partir de la imagen de apache2 seleccionada.</li>
+    <li>Se inyecta en ese pod el código del repositorio.</li>
+    <li>Y se crea una nueva imagen con apache2 y nuestra aplicación.</li>
+  </ul>
+  </ol>
 </section>
 <section>
-    <h4>Creamos nuestra primera aplicación</h4>
-    <p>Indicamos un nombre y el repositorio donde tenemos nuestro código:</p>
-    <img src="img/openshift2.png"/>
-  </section>
-  <section>
-      <h4>Creamos nuestra primera aplicación</h4>
-      <p>Se va a crear un build:</p>
-      <ul>
-        <li>Se crea un pod a partir de la imagen de apache2 seleccionada.</li>
-        <li>Se inyecta en ese pod el código del repositorio.</li>
-        <li>Y se crea una nueva imagen con apache2 y nuestra aplicación.</li>
-      </ul>
-  </section>
-  <section>
-      <img src="img/openshift3.png"/>
-      <img src="img/openshift4.png"/>
-      <img src="img/openshift5.png"/>
-  </section>    
-  <section>
-      <h4>Creamos nuestra primera aplicación</h4>
-      <p>A partir de la imagen creada:</p>
-      <ul>
-        <li>Se crea un deployment que crear un pod con la aplicación.</li>
-        <li>Se crea un servicio de acceso a la aplicación</li>
-        <li>Y se crea una ruta de acceso.</li>
-      </ul>
-  </section>
-  <section>
-      <img src="img/openshift6.png"/>
-      <img src="img/openshift7.png"/>
-      <img src="img/openshift8.png"/>
-  </section> 
-  <section>
-      <h4>Creamos nuestra primera aplicación</h4>
-    <p>Ya tenemos desplegada nuestra aplicación:</p>
-      <img src="img/openshift9.png"/>
-  </section> 
-  <section>
-      <h4>Creamos nuestra primera aplicación</h4>
-      <p>Y podemos acceder a ella:</p>
-        <img src="img/openshift10.png"/>
-    </section> 
+  <h4>Creamos nuestra primera aplicación</h4>
+  <ol start="4">
+    <li>A partir de la imagen creada:</li>
+    <ul>
+      <li>Se crea un deployment que crear un pod con la aplicación.</li>
+      <li>Se crea un servicio de acceso a la aplicación</li>
+      <li>Y se crea una ruta de acceso.</li>
+    </ul>
+    <li>Ya tenemos desplegada nuestra aplicación y podemos acceder a ella.</li>
+  </ol>
 </section>
+</section>
+      
