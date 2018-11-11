@@ -32,7 +32,7 @@ automated configuration or containers.
     + [EC2. Linux and Windows instances](https://drive.google.com/file/d/14IZ926uIpykP6y0UPJ5byVhIbiWZfjF7/view?usp=sharing)  [**VIDEO.-SSH**](https://www.youtube.com/watch?v=RjLilrIdHbY)    [**VIDEO-Linux instance**](https://www.youtube.com/watch?v=G0FuJD9Udcw)
     + [IAM](https://drive.google.com/file/d/1VtM1GYBuHBGkDIGpAr6vhG2_Xxr_Azmr/view?usp=sharing) 
     + [Monitoring: use & cost](https://drive.google.com/file/d/1YzDzj5tz2Zq6G9rK1K_YQVNwcFoCsbJf/view?usp=sharing)
-    + [Network and Security](https://drive.google.com/file/d/18E8JpuOwvq1lrWU0AbJ_kDG5VJ0Gqmtw/view?usp=sharing)
+    + [Networking and Security](https://drive.google.com/file/d/18E8JpuOwvq1lrWU0AbJ_kDG5VJ0Gqmtw/view?usp=sharing)
   - AWS Educate for your school
 
 
