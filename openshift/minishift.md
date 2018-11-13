@@ -15,7 +15,7 @@ Y probamos la versión que hemos descargado:
     $ minishift version                       
     minishift v1.27.0+707887e
 
-Ejecutando el comando `minishift` puedes visualizar todas los subcomandos que podemos ejecutar, puedes obtener ayuda para ver como funcionan cada uno de ellos.
+Ejecutando el comando `minishift` puedes visualizar todos los subcomandos que podemos ejecutar, puedes obtener ayuda para ver como funcionan cada uno de ellos.
 
 ## Creando el cluster openshift
 
@@ -26,14 +26,14 @@ La inicialización del cluster crea una nueva máquina en nuestro virtualbox e i
     -- Starting profile 'minishift'
     ...
     OpenShift server started.
-    
+
     The server is accessible via web console at:
         https://192.168.99.100:8443/console
-    
+
     You are logged in as:
         User:     developer
         Password: <any value>
-    
+
     To login as administrator:
         oc login -u system:admin
 
