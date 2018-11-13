@@ -135,17 +135,33 @@ tema: white
 </section>
 <section>
 <section>
-  <h4>Actualización y rolloback de nuestra aplicación</h4>
+  <h4>Actualización y rollback de nuestra aplicación</h4>
   <ol>
     <li>Modificamos el código de nuestra aplicación, y guardamos los cambios en el repositorio.</li>
     <li>Desde openshift realizamos un nuevo build, que construye una nueva imagen con la aplicación modificada.</li>
     <li>A continuación, de forma automática, se realizará un nuevo deployment, que borrará los pods antiguos y creará nuevos desde la nueva imagen.</li>
-    <li>En cualquier momento podemos desplegar un deployment anterior, para desplegar una versión más antigua de nuestra aplicación.</li>
+    <li>En cualquier momento podemos desplegar un deployment anterior, para volver a una versión anterior de nuestra aplicación.</li>
   </ol>
 </section>
 <section>
-  <h4>Actualización y rolloback de nuestra aplicación</h4>
+  <h4>Actualización y rollback de nuestra aplicación</h4>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/xY7W2e1ufWk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 </section>
+<section>
+  <section>
+    <h4>Despliegue de aplicaciones Python en OpenShift</h4>
+    <ol>
+      <li>Guardamos nuestra aplicación en un repositorio GitHub.</li>
+      <li>Al crear nuestra aplicación, escogemos en el catálogo la opción de imagen <strong>python</strong>.</li>
+      <li>Escogemos la versión de python e indicamos el repositorio de nuestra aplicación.</li>
+      <li>Durante el despliegue se van a instalar los módulos que encuentre en el fichero requirements.txt</li>
+      <li>El contenedor que vamos a crear ejecuta por defecto una aplicación qie se llame app.py</li>
+    </ol>
+  </section>
+  <section>
+    <h4>Despliegue de aplicaciones Python en OpenShift</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/xY7W2e1ufWk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </section>
+  </section>
       
