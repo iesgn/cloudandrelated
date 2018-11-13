@@ -161,7 +161,34 @@ tema: white
   </section>
   <section>
     <h4>Despliegue de aplicaciones Python en OpenShift</h4>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/xY7W2e1ufWk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/6CjMm7iLdsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </section>
   </section>
-      
+    
+  <section>
+    <section>
+      <h4>Despliegue de aplicaciones PHP en OpenShift</h4>
+      <ol>
+        <li>Vamos a instalar un CMS PHP que utiliza una base de datos Sqlite. (
+          phpSQLiteCMS)</li>
+        <li><a href="https://github.com/ilosuna/phpsqlitecms.git">Repositorio GitHub</a></li>
+        <li>Al crear nuestra aplicación, escogemos en el catálogo la opción de imagen <strong>PHP</strong>.</li>
+        <li>Escogemos la versión de PHP e indicamos el repositorio de nuestra aplicación.</li>
+        <li>Durante el despliegue se van a instalar los módulos que encuentre en el fichero composer.json</li>
+      </ol>
+    </section>
+    <section>
+      <h4>Despliegue de aplicaciones PHP en OpenShift</h4>
+      <ol>
+        <li>En el directorio /cms/data se encuentran las bases de datos de la aplicación.</li>
+        <li>Los contenedores son <strong>efímeros</strong>, no tenemos almacenamiento persistente.</li>
+        <li>Cuando escalemos nuestra aplicación se va a crear otro pod con la base de datos inicial, en este nuevo pod no tenemos el mismo contenido que el original.</li>
+        <li>Si realizamos un nuevo despliegue los nuevos pods perderán los datos de la base de datos.</li>
+        <li><strong>¡¡¡Necesitamos volúmenes persistentes!!!</strong></li>
+      </ol>
+    </section>
+    <section>
+      <h4>Despliegue de aplicaciones PHP en OpenShift</h4>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/6CjMm7iLdsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+    </section>
