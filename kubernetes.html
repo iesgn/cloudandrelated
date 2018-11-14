@@ -1,10 +1,10 @@
 ---
 layout: presentacion
-title: ¿Qué nos aporta Kubernetes en el despliegue de aplicaciones?
+title: What is kubernetes used for?
 tema: white
 ---
 <section>
-  <h2>¿Qué nos aporta Kubernetes en el despliegue de aplicaciones?</h2>
+  <h2>What is kubernetes used for?</h2>
     <p>
     Alberto Molina Coballes, José Luis Rodríguez Rodríguez and José Domingo Muñoz Rodríguez
   </p>
@@ -21,8 +21,11 @@ tema: white
 
 <section>
   <h3>Kubernetes</h3>
-  <p>Kubernetes es un orquestador de contenedores de aplicación escrito en Go y con licencia Apache-2.0, fue lanzado el 21 de julio de 2015 por Google que rápidamente se alió con la Linux Foundation para crear la Cloud Native Computing Foundation (CNCF) y dejó el proyecto en sus manos. </p>
-  <p>Gestionamos un cluster:</p>
+  <p>Kubernetes is an application container orchrestator written in Go
+  licensed under Apache-2.0, Google launched it on 2015, the project
+  is currently maintained by the Cloud Native Computing Foundation
+  (CNCF)</p>
+  <p>Managing a cluster:</p>
   <pre><code>
 kubectl get nodes
 NAME     STATUS   ROLES    AGE     VERSION
@@ -33,51 +36,53 @@ nodo-3   Ready    &lt;none&gt;   42s     v1.12.2
 </section>
 <section>
 <section>
-  <h3>Recursos de Kubernetes</h3>
+  <h3>Kubernetes resources</h3>
   <img src="img/kubernetes1.png"/>
 </section>
 <section>
-  <h3>¿Qué nos aportan cada uno de los recursos de Kubernetes? (I)</h3>
+  <h3>Kubernetes elements (I)</h3>
   <ul>
-    <li><strong>Pods</strong>: La unidad mínima de computación, permite ejecutar contenedores. Representa un conjunto de contenedores y almacenamiento compartido que comparte una única IP.</li>
-    <li><strong>ReplicaSet</strong>: Asegura que siempre se ejecute un número de replicas de un pod determinado. Nos proporciona las siguientes características:
+    <li><strong>Pods</strong>: Kubernetes minimum unit. A set of
+    containers (usually only one) sharing storage and with a unique IP
+    address.</li>
+    <li><strong>ReplicaSet</strong>: Defines the number of replicas of
+    a specific pod. It provides: 
       <ul>
-        <li>Que no haya caída del servicio</li>
-        <li>Tolerancia a errores</li>
-        <li>Escabilidad dinámica</li>
+        <li>Avoid service outage</li>
+        <li>Fault tolerance</li>
+        <li>Dynamic Scalability</li>
       </ul>
   </li>
   </ul>
 </section>
 <section>
-  <h3>¿Qué nos aportan cada uno de los recursos de Kubernetes? (II)</h3>
+  <h3>Kubernetes elements (II)</h3>
   <ul>
-    <li><strong>Deployment</strong>: Nos permite manejar los <em>ReplicaSets</em>. Nos proporciona las siguientes características:
+    <li><strong>Deployment</strong>: It manages <em>ReplicaSets</em>
+      and provides:
       <ul>
-        <li>Actualizaciones continúas</li>
-        <li>Despliegues automáticos</li>
+        <li>Continuous updates</li>
+        <li>Automatic deployments</li>
       </ul>
-  </li>
-  <li>
-    <strong>Service</strong>: Nos permite el acceso a los pod.
-  </li>
-  <li>
-    <strong>Ingress</strong>: Nos permite implementar un proxy inverso para el acceso a los distintos servicios establecidos. Estos dos elementos nos proporcionan la siguiente funcionalidad:
-    <ul>
-      <li>Balanceo de carga</li>
-    </ul>
-  </li>
+    </li>
+    <li>
+      <strong>Service</strong>: Allow access to a pod.
+    </li>
+    <li><strong>Ingress</strong>: Reverse proxy to access to the
+      application from an external network. It provides also a load
+      balancer</li>
   </ul>
 </section>
+
 <section>
-  <h3>¿Qué nos aportan cada uno de los recursos de Kubernetes? (III)</h3>
+  <h3>Kubernetes elements (III)</h3>
   <ul>
-    <li>Otros recursos de un cluster Kubernetes nos pueden proporcional características adicionales:
+    <li>There are others elements providing:</li>
     <ul>
-      <li>Migraciones sencillas</li>
-      <li>Monitorización</li>
-      <li>Control de acceso basada en Roles</li>
-      <li>Integración y despliegue continuo</li>
+      <li>Easy migrations</li>
+      <li>Monitoring</li>
+      <li>Role Based Access Control (RBAC)</li>
+      <li>Continuous integration and continuous deployment</li>
     </ul>
   </li>
   </ul>
@@ -85,10 +90,10 @@ nodo-3   Ready    &lt;none&gt;   42s     v1.12.2
 </section>
 <section>
 <section>
-  <h3>Ejemplo: Tolerancia a fallos</h3>
+  <h3>Example: Fault tolerance</li>
 </section>
 <section>
-  <ul><li>Creamos un despliegue a partir de la imagen <code>josedom24/aplicacionweb:v1</code> y comprobamos que se ha creado un pod:</li></ul>
+  <ul><li>A deployment is created using the image <code>josedom24/aplicacionweb:v1</code>:</li></ul>
     <pre><code>
 kubectl run pagweb --image josedom24/aplicacionweb:v1
     
@@ -98,7 +103,7 @@ pagweb-5d756cb86-wm4zg   1/1     Running   0          3m7s
 </code></pre>
 </section>
 <section>
-<ul><li>Si por cualquier motivo el pod deja de funcionar, comprobamos que Kubernetes vuelve a crear un nuevo pod:</li></ul>    
+<ul><li>If the pod fails, Kubernetes creates a new one:</li></ul>    
 <pre><code>
 kubectl delete pod/pagweb-5d756cb86-wm4zg
 pod "pagweb-5d756cb86-wm4zg" deleted
@@ -110,7 +115,7 @@ pagweb-5d756cb86-wm4zg   1/1     Terminating   0          4m56s
 </code></pre>
 </section>
 <section>
-<ul><li>Además del pod se ha creado un recurso Deployment y otro ReplicaSet:</li></ul>
+<ul><li>One Deployment and one ReplicaSet have been created::</li></ul>
 <pre><code>
 kubectl get deploy
 NAME     DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
@@ -120,20 +125,20 @@ kubectl get rs
 NAME               DESIRED   CURRENT   READY   AGE
 pagweb-5d756cb86   1         1         1       5m
 </code></pre>
-<ul><li>El recurso ReplicaSet es el responsable de este funcionamiento.</li></ul>
 </section>
 </section>
 <section>
 <section>
-  <h3>Ejemplo: Escabilidad</h3>
+  <h3>Example: Scalability</h3>
 </section>
 <section>
-  <ul><li>ReplicaSet también es el responsable de las replicas. En cualquier podemos escalar el número de pods:</li></ul>
+  <ul><li>ReplicaSet is alos responsible for the replicas. The number
+  of pods can be scaled when needed:</li></ul>
 <pre><code>
 kubectl scale deploy pagweb --replicas=3
 deployment.extensions/pagweb scaled
 </code></pre>
-<ul><li>Y podemos comprobar que se han creado 3 pods ejecutándose en distintos nodos:</li></ul>
+<ul><li>3 pods running on different nodes:</li></ul>
 <pre><code>
 kubectl get pod -o wide
 NAME                     READY   STATUS    ...     NODE   ...
@@ -145,10 +150,11 @@ pagweb-5d756cb86-wppxj   1/1     Running   ...   nodo-3   ...
 </section>
 <section>
 <section>
-    <h3>Ejemplo: Accediendo a nuestra aplicación. Balanceo de carga</h3>
+    <h3>Example: Accessing to the application. Load balancing</h3>
 </section>
 <section>
-  <ul><li>Para acceder a nuestra aplicación debemos crear un recurso Service:</li></ul>
+  <ul><li>A Service resource must be created in order to allow access
+  to the application:</li></ul>
   <pre><code>
 kubectl expose deployment pagweb --port=80 --type=NodePort
 service/pagweb exposed
@@ -160,17 +166,19 @@ pagweb       NodePort    10.98.140.134   &lt;none&gt;        80:30848/TCP   18s
 </code></pre>
 </section>
 <section>
-  <ul><li>Podemos acceder a la IP del nodo master, al puerto 30848:</li></ul>
+  <ul><li>Service is available on port 30848 in the master node:</li></ul>
   <img src="img/kubernetes2.png"></img>
-  <ul><li>Cada vez que accedemos a la aplicación se está accediendo a uno de los 3 pods que hemos creado. (Balanceo de carga)</li></ul>
+  <ul><li>Every time application is used a load balancer is used to
+  access to one of the three nodes available</li></ul>
 </section>
 </section>
 <section>
 <section>
-  <h3>Ejemplo: Actualizaciones continúas</h3>
+  <h3>Example: Continuous updates</h3>
 </section>
 <section>
-  <ul><li>Podemos modificar nuestro despliegue para actualizar a la última versión de nuestra aplicación. Comprobamos que se crean 3 nuevos pods con la última versión de nuestra aplicación:</li></ul>
+  <ul><li>The deployment can be modified to update the application to
+  the latest release. 3 new pods are created using latest release::</li></ul>
   <pre><code>
 kubectl set image deployment pagweb pagweb=josedom24/aplicacionweb:v2
 deployment.extensions/pagweb image updated
@@ -186,16 +194,16 @@ pagweb-7f6d9648fc-r8vql   1/1     Running       0          5s
 </code></pre>
 </section>
 <section>
-  <ul><li>Y podemos acceder a la nueva versión de nuestra aplicación:</li></ul>
+  <ul><li>The latest release is now available:</li></ul>
   <img src="img/kubernetes3.png"></img>
 </section>
 </section>
 <section>
 <section>
-  <h3>Ejemplo: Rollback de nuestra aplicación</h3>
+  <h3>Example: Rollback</h3>
 </section>
 <section>
-  <ul><li>Si por cualquier motivo quiero volver a la versión anterior de nuestro despliegue:</li></ul>
+  <ul><li>The previous release can be deployed again:</li></ul>
   <pre><code>
 kubectl rollout undo deployment/pagweb
 deployment.extensions/pagweb
@@ -211,18 +219,19 @@ pagweb-7f6d9648fc-r8vql   1/1     Terminating   0          8m55s
 </code></pre>
 </section>
 <section>
-  <ul><li>Y volveríamos tener la versión anterior de nuestra aplicación:</li></ul>
+  <ul><li>And the previous release is now available:</li></ul>
   <img src="img/kubernetes2.png"></img>
-  <ul><li>Tenemos un historial de versiones de nuestro despliegues y podemos volver a un estado anterior cuando lo necesitemos.</li></ul>
+  <ul><li>A previous state can be used when needed!</li></ul>
 </section>
 </section>
 <section>
 <section>
-  <h3>Ejemplo: Enrutando nuestras aplicaciones.</h3>
+  <h3>Example: Routing.</h3>
 </section>
 <section>
-  <ul><li>El recurso Ingress Controller nos ofrece un proxy inverso, que por medio de reglas de encaminamiento nos permite el acceso a nuestras aplicaciones por medio de nombres.</li></ul>
-  <ul><li>Necesitamos un fichero de configuración <code>ingress.yaml</code></li></ul>
+  <ul><li>Ingress Controller is a reverse proxy, using routing rules
+  the application can be available through a FQDN.</li></ul>
+  <ul><li>A configuration file is needed: <code>ingress.yaml</code></li></ul>
   <pre><code>
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -241,7 +250,7 @@ spec:
   </code></pre>
 </section>
 <section>
-  <ul><li>Y ahora creamos el recurso ingress:</li></ul>
+  <ul><li>And the ingress resource is created:</li></ul>
   <pre><code>
 kubectl create -f ingress.yaml 
 ingress.extensions/pagweb created
@@ -252,17 +261,18 @@ pagweb   pagweb.172.22.200.165.nip.io             80      6s
  </code></pre>
 </section>
 <section>
-  <ul><li>Y podemos acceder a nuestra aplicación por medio del nombre que hemos asignado:</li></ul>
+  <ul><li>The applications is available using a FQDN:</li></ul>
   <img src="img/kubernetes4.png"></img>
 </section>
 </section>
 <section>
 <section>
-  <h3>Ejemplo: Volúmenes persistentes en Kubernetes</h3>
+  <h3>Example: Persistent volumes in Kubernetes</h3>
 </section>
 <section>
-  <ul><li>El administrador del cluster debe crear un recurso PersistentVolumen, donde define el total de almacenamiento disponible en el cluster.</li>
-  <li>Nosotros hemos creado una unidad nfs compartida entre los nodos:</li></ul>
+  <ul><li>The cluster manager must create a resource called
+  PersistentVolume, where the total storage available is defined.</li>
+  <li>In this example, a NFS unit shared between the nodes has been created:</li></ul>
   <pre><code>
 kubectl get pv
 NAME     CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
@@ -270,7 +280,8 @@ nfs-pv   5Gi        RWX            Recycle          Available                   
   </code></pre>
 </section>
 <section>
-  <ul><li>Debemos reservar espacio en el PersistentVolumen, creando un recurso PersistentVolumenClaim, para ello utilizamos el fichero pvc.yaml:</li></ul>
+  <ul><li>A resource called PersistentVolumeClaim must be created to
+  reserve the PersistentVolume, using the pvc.yaml file:</li></ul>
 <pre><code>
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -294,10 +305,10 @@ kubectl get pvc
 NAME      STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 nfs-pvc   Bound    nfs-pv   5Gi        RWX                           4s
 </code></pre>
-<ul><li>Como podemos observar al crear el pvc se busca del conjunto de pv uno que cumpla sus requerimientos, y se asocian (status bound) por lo tanto el tamaño indicado en el pvc es el valor mínimo de tamaño que se necesita, pero el tamaño real será el mismo que el del pv asociado.</li></ul> 
+<!-- <ul><li>Como podemos observar al crear el pvc se busca del conjunto de pv uno que cumpla sus requerimientos, y se asocian (status bound) por lo tanto el tamaño indicado en el pvc es el valor mínimo de tamaño que se necesita, pero el tamaño real será el mismo que el del pv asociado.</li></ul>  -->
 </section>
 <section>
-  <ul><li>A continuación vamos a crear un deploy donde vamos a montar nuestro volumen, utilizamos el fichero pod-deploy.yaml:</li></ul>
+  <ul><li>A new deployment is going to be launched using this volume:</li></ul>
   <pre><code>
       apiVersion: extensions/v1beta1
       kind: Deployment
@@ -327,7 +338,7 @@ nfs-pvc   Bound    nfs-pv   5Gi        RWX                           4s
         </code></pre>
 </section>
 <section>
-  <ul><li>Creamos el deploy y el servicio:</li></ul>
+  <ul><li>The deployment and the associated service are created:</li></ul>
   <pre><code>
 kubectl create -f nginx-deploy.yaml 
 deployment.extensions/nginx created
@@ -344,11 +355,12 @@ service/nginx        NodePort    10.110.53.26    &lt;none&gt;        80:30196/TC
   </code></pre>
 </section>
 <section>
-  <ul><li>Comprobamos que al acceder a la aplicación no tenemos ninguna página:</li></ul>
+  <ul><li>Trying to access to the application, but it's not available:</li></ul>
   <img src="img/kubernetes5.png"/>
 </section>
 <section>
-  <ul><li>Por último escribimos el contenido en el directorio compartido, y accedemos a la aplicación:</li></ul>
+  <ul><li>Writing any content on the shared directory and the
+  application becomes available:</li></ul>
   <pre><code>
 echo "It works..." | ssh debian@172.22.200.165 'cat >> /var/shared/index.html' 
   </code></pre>
