@@ -37,14 +37,14 @@ automated configuration or containers.
 
 
 * PART III
-  - Containers: Systems containers like LXC vs applications containers like docker
-  - Containers orchestration: kubernetes
-  - Containers on IaaS
-  - Containers on PaaS
-    - [Introducción a PaaS](https://iesgn.github.io/cloudandrelated/paas.html#/)
+  <!-- - Containers: Systems containers like LXC vs applications containers like docker -->
+  <!-- - Containers orchestration: kubernetes -->
+  <!-- - Containers on IaaS -->
+  <!-- - Containers on PaaS -->
+  - [Introduction to PaaS](https://iesgn.github.io/cloudandrelated/paas.html#/)
     - Introducción a OpenShift
     - Ciclo de vida de nuestras aplicaciones en docker
-    - ¿Qué nos aporta Kubernetes en el despliegue de aplicaciones?
+  - [What is kubernetes used for?](https://iesgn.github.io/cloudandrelated/kubernetes.html#/)
     - Desplegando aplicaciones en Openshift
 	
 * PART IV
