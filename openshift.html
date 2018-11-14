@@ -1,11 +1,11 @@
 ---
 layout: presentacion
-title: Introducción a Openshift
+title: Introduction to Openshift
 tema: white
 ---
 <section>
-  <h2>Introducción a OpenShift</h2>
-  <h3>Aplicaciones orientadas a microservicios</h3>
+  <h2>Introduction to OpenShift</h2>
+  <h3>Microservice oriented applicatios</h3>
   <p>
     Alberto Molina Coballes, José Luis Rodríguez Rodríguez and José Domingo Muñoz Rodríguez
   </p>
@@ -22,37 +22,49 @@ tema: white
 
 <section>
 <section>
-  <h3>Despliegue tradicional de aplicaciones</h3>
+  <h3>Traditional deployment</h3>
   <ul>
-    <li>Las aplicaciones tradicionalmente se implementan como un sólo conjunto de librerías y archivos de configuración.</li>
-    <li>Se implementan en un sistema operativo (en servidores físicos o virtuales) con un conjunto se servicios en ejecución (web, base de datos, ...).</li>
-    <li>Desventaja 1: Las actualizaciones del S.O. puede interrumpir la aplicación.</li>
-    <li>Desventaja 2: Si en un mismo sistema tenemos varias aplicaciones, las actualizaciones de librerías de una ella puede afectar a otras aplicaciones.</li>
-    <li>Posible solución: Sistemas en alta disponibilidad que minimicen el tiempo de parada de una aplicación.</li>
+    <li>The applications are traditionally implemented as a single set of libraries and configuration files.</li>
+    <li>They are implemented in an operating system (on physical or virtual servers) with a set of services running (web, database, ...).</li>
+    <li>Disadvantage 1: O.S. updates can interrupt the application.</li>
+    <li>Disadvantage 2: If several applications are running on the same system, the library updates of one of them can affect other applications.</li>
+    <li>Possible solution: High availability systems that minimize the downtime of an application.</li>
   </ul>
 </section>
 <section>
-  <h3>¿Qué alternativa podemos encontrar hoy en día?</h3>
-  <h2>Los Contenedores</h2>
+  <h3>What alternatives can be used today?</h3>
+  <h2>Containers</h2>
   <img src="img/containers.png"/><br/>
-  <small>Red Hat</small>
+  <small>Source: Red Hat</small>
 </section>
 <section>
-  <h2>¿Qué son los contenedores?</h2>
-  <p>Los contenedores son un tipo de partición aislada dentro de un solo sistema operativo. Ofrecen muchos de los mismos beneficios que las máquinas virtuales, como seguridad, almacenamiento y aislamiento de redes, pero requieren muchos menos recursos de hardware y son más rápidos de iniciar y finalizar. También aíslan las librerías y el entorno de tiempo de ejecución (como CPU y almacenamiento) utilizados por una aplicación para minimizar el impacto de una actualización de SO en el SO del host.</p>
+  <h2>What are containers?</h2>
+  <p>Containers are a type of partition isolated within a single
+  operating system. They offer many of the same benefits as virtual
+  machines, such as security, storage, and network isolation, but
+  require far fewer hardware resources and are quicker to start and
+  stop. They also isolate the libraries and runtime environment (such
+  as CPU and storage) used by an application to minimize the impact of
+  an OS upgrade on the host OS. 
 </section>
 <section>
-  <h2>Ventajas del uso de contenedores</h2>
+  <h2>Containers benefits</h2>
   <ul>
-    <li>Aislamiento del entorno.</li>
-    <li>Menor tamaño del hardware.</li>
-    <li>Implementación rápida.</li>
-    <li>Reutilización de componentes.</li>
-    <li>Minimización del impacto frente a errores/cambios.</li>
+    <li>Environment isolation</li>
+    <li>Smaller hardware resources needed</li>
+    <li>Quick deployment</li>
+    <li>Components reused</li>
+    <li>The impact of errors/changes can be minimized</li>
   </ul>
 </section>
 <section>
-  <h2>Despliegue de aplicaciones basada microservicios</h2>
+  <h2>Containers disadvantage</h2>
+  <ul>
+    <li>Complexity</li>
+  </ul>
+</section>
+<section>
+  <h2>Deployment of Microservice based applications</h2>
   <p>Los contenedores fomentan el enfoque de desarrollo aplicaciones basada en <strong>microservicios</strong> (us aplicaciones monolíticas), ya que los distintos servicios en que dividimos una aplicación se pueden ejecutar de manera muy sencilla en distintos contenedores.</p>
   <p>Ventajas: Cada contenedor ofrece un servicio, son más fáciles de mantener, de escalar, de iniciar, de actualizar,...</p>
 </section>
@@ -60,47 +72,70 @@ tema: white
 <section>
 <section>
   <h2>OpenShift</h2>
-  <p>Plataforma de Desarrollo, con características de Cloud Computing (PaaS) desarrollada por Red Hat</p>
+  <p>Development Platform, with Cloud Computing (PaaS) features
+    developed by Red Hat</p>
   <ul>
-    <li>Nos centramos en el desarrollo de la aplicación</li>
-    <li>Openshift utiliza internamente Docker y Kubernetes</li>
-    <li>Nos permite desplegar aplicaciones en diferentes entornos (desarrollo,  producción,...)</li>
-    <li>Facilita la integración continúa</li>
-    <li>Tenemos varías formas de interactuar con OpenShift: aplicación web, CLI o API REST</li>
+    <li>We focus on application development</li>
+    <li>Openshift uses Docker (CRI-O) and Kubernetes internally</li>
+    <li>It allows us to deploy applications in different environments
+      (development, production, ...)</li>
+    <li>It facilitates continuous integration</li>
+    <li>We have several ways to interact with OpenShift: web
+      application, CLI or API REST</li>
   </ul>
 </section>
 <section>
   <h2>Docker</h2>
   <cite>“Build, Ship and Run. Any application, Anywhere”</cite>
   <ul>
-    <li>Docker es un sistema de virtualización ligera que nos permite trabajar con contenedores de aplicación.</li>
-    <li>Los contenedores son autosuficientes (aunque pueden depender de otros contenedores)  no necesitando nada más que la imagen del contenedor para que funcionen los servicios que ofrece.</li>
-    <li>Contenedores múltiples comparten el mismo núcleo, pero cada contenedor puede ser restringido a utilizar sólo una cantidad definida de recursos como CPU, memoria y E/S.</li>
+    <li>Docker is a lightweight virtualization system that allows us
+      to work with application containers.</li>
+    <li>The containers are self-sufficient (although they can depend
+    on other containers), requiring nothing more than the image of the
+      container for the services it offers to work.</li>
+    <li>Multiple containers share the same core, but each container
+    can be restricted to using only a defined amount of resources such
+      as CPU, memory and I/O.</li>
   </ul>
 </section>
 <section>
   <h2>Kubernetes</h2>
   <ul>
-    <li>Kubernetes es un sistema de código abierto que nos permite despliegues automáticos, escabilidad y gestión de contenedores de aplicaciones.</li>
-    <li>Gestiona un conjunto de servidores donde se ejecutan los contenedores.</li>
-    <li>Las aplicaciones reales están formados por varios contenedores, K8S nos ofrece mecanismos para gestionarlos: implantación, asegurar el servicio, tolerancia a errores, escabilidad, actualizaciones continúas, integración y despliegues automáticos, balanceo de carga, monitorización,... </li>
+    <li>Kubernetes is an open source system that allows us to
+    automatically deploy, scale and manage application
+      containers.</li>
+    <li>It manages a set of servers where the containers are
+      executed.</li>
+    <li>The real applications are formed by several containers, K8S
+    offers us mechanisms to manage them: implementation, service
+    assurance, error tolerance, scalability, continuous updates,
+    integration and automatic deployments, load balancing, monitoring,
+    ...</li>
   </ul>
 </section>
 </section>
 <section>
-  <h2>Soluciones disponibles de OpenShift</h2>
+  <h2>OpenShift</h2>
   <ul>
-    <li><strong><a href="https://www.okd.io/">OKD (origin)</a></strong>: La distribución de la comunidad que puedes instalar en tu infraestructura. </li>
-    <li><strong><a href="https://www.openshift.com/products/online/">OpenShift Online</a></strong>: Versión que se ejecuta en el cloud público de Red Hat. Dos planes: Free y Pro.</li>
-    <li><strong><a href="https://www.openshift.com/products/dedicated/">OpenShift Dedicated</a></strong>:te permite disponer de un cluster de Openshift gestionado por Red Hat para que despliegues tus aplicaciones.</li>
-    <li><strong><a href="https://www.openshift.com/products/container-platform/">OpenShift Container Platform</a></strong>:te permite disponer de un cluster de Openshift en tu propia infraestructura gestionado por Red Hat.</li>
+    <li><strong><a href="https://www.okd.io/">OKD
+    (origin)</a></strong>: Open source distribution that can be used
+    in your own infrastructure. </li>
+    <li><strong><a href="https://www.openshift.com/products/online/">OpenShift
+    Online</a></strong>: Available on Red Hat's public cloud. Two plans: Free and Pro.</li>
+    <li><strong><a href="https://www.openshift.com/products/dedicated/">OpenShift
+	  Dedicated</a></strong>: Single-tenant, high-availability
+      Kubernetes clusters in the public cloud</li>
+    <li><strong><a href="https://www.openshift.com/products/container-platform/">OpenShift
+    Container Platform</a></strong>: A Openshift cluster in your own
+    infrastructure managed by Red Hat.</li>
   </ul>
 </section>
 <section>
 <section>
-  <h2>Tecnologías soportadas por OpenShift</h2>
+  <h2>Available technologies on OpenShift</h2>
   <img src="img/tecnologias.png"/>
-  <h3><a href="https://www.openshift.com/products/features/containers/#online3">Ver todas las tecnologías...</a></h3>
+  <h3><a href="https://www.openshift.com/products/features/containers/#online3">See
+  all ...</a></h3>
 </section>
 <section>
   <img src="img/openshift1.png"/>
