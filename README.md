@@ -43,9 +43,9 @@ automated configuration or containers.
   <!-- - Containers on PaaS -->
   - [Introduction to PaaS](https://iesgn.github.io/cloudandrelated/paas.html#/)
   - [Introduction to OpenShift](https://iesgn.github.io/cloudandrelated/openshift.html#/)
-    - Ciclo de vida de nuestras aplicaciones en docker
+  - Docker
   - [What is kubernetes used for?](https://iesgn.github.io/cloudandrelated/kubernetes.html#/)
-    - Desplegando aplicaciones en Openshift
+  - Deploying applications on OpenShift
 	
 * PART IV
   - [Infrastructure as Code](https://iesgn.github.io/cloudandrelated/infra_as_code.html#/). [VIDEO](https://youtu.be/Jcx5sbl5teE)
