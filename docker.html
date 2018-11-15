@@ -82,7 +82,7 @@ tema: white
   </ul>
 </section>
 <section>
-  <h4>Paso 2: Creación de la imagen Docker</h4>
+  <h4>Step 2: Creating the Docker image</h4>
   <p><code>Dockerfile</code></p>
   <pre><code>
     FROM debian
@@ -92,15 +92,15 @@ tema: white
     COPY ./public_html /var/www/html/
     ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
   </code></pre>
-  <p>Podríamos usar una imagen base con apache2 ya instalado:</p>
+  <p>We can also choose a base image with apache included:</p>
   <pre><code>
     FROM httpd:2.4
     COPY ./public_html /usr/local/apache2/htdocs/
   </code></pre>
 </section>
 <section>
-  <h4>Paso 2: Creación de la imagen Docker</h4>
-  <p>Creamos nuestra imagen, desde el directorio donde tenemos el <code>Dockerfile</code>, ejecutamos:</p>
+  <h4>Step 2: Creating the Docker image</h4>
+  <p>To create the image, from the directory where <code>Dockerfile</code> is located, execute:</p>
   <pre><code>
     $ docker build -t josedom24/aplicacionweb:v1 .
     Sending build context to Docker daemon  3.584kB
@@ -113,8 +113,8 @@ tema: white
   </code></pre>
 </section>
 <section>
-  <h4>Paso 2: Creación de la imagen Docker</h4>
-  <p>Podemos comprobar que en nuestro entorno local tenemos la imagen que acabamos de crear:</p>
+  <h4>Step 2: Creating the Docker image</h4>
+  <p>We can verify that the new image is available:</p>
   <pre><code>
     $ docker image ls
     REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
@@ -125,8 +125,8 @@ tema: white
 </section>
 <section>
 <section>
-  <h4>Paso 3: Probamos nuestra aplicación en el entorno de desarrollo</h4>
-  <p>Creamos un contenedor en nuestro entorno de desarrollo:</p>
+  <h4>Step 3: Using the application in a development environment</h4>
+  <p>We just need to run the container with the application:</p>
   <pre><code>
   $ docker run --name aplweb -d -p 80:80 josedom24/aplicacionweb:v1
   fbdd73529e2bb2d9ee9c6415031513741688e6d38509572251f5b624ed7dc23f
@@ -137,14 +137,15 @@ tema: white
   </code></pre>
 </section>
 <section>
-  <h4>Paso 3: Probamos nuestra aplicación en el entorno de desarrollo</h4>
-  <p>Probamos nuestra aplicación:</p>
+  <h4>Step 3: Using the application in a development environment</h4>
+  <p>And now, we can check the application is available:</p>
   <img src="img/docker1.png"/>
 </section>
 </section>
 <section>
-  <h4>Paso 4: Distribuimos nuestra imagen</h4>
-  <p>Vamos a subir nuestra imagen al registro Docker Hub:</p>
+  <h4>Step 4: Sharing the image</h4>
+  <p>Docker hub or any other docker registry can be used to upload the
+  image and share it with others</p>
   <pre><code>
     $ docker login
     ...
@@ -162,8 +163,9 @@ tema: white
   </code></pre>
 </section>
 <section>
-  <h5>Paso 5:Implantación de la aplicación</h5>
-  <p>En el el <strong>entorno de producción</strong>, bajamos la imagen de Docker Hub y creamos el contenedor:</p>
+  <h5>Step 5: Deploying the application</h5>
+  <p>From the <strong>production environment</strong> the image can be
+  downloaded and a new container launched:</p>
   <pre><code>
     $ docker pull josedom24/aplicacionweb:v1
     v1: Pulling from josedom24/aplicacionweb
@@ -174,14 +176,15 @@ tema: white
 </section>
 <section>
 <section>
-  <h4>Paso 6: Modificación de la aplicación</h4>
-  <p>Al modificar el código de la aplicación tenemos que generar una nueva imagen.</p>
+  <h4>Step 6: Modifying the application</h4>
+  <p>If the code is modified, a new image must be created.</p>
   <pre><code>
     $ cd public_html
     echo "&lt;h1&gt;Prueba 2&lt;/h1&gt;" > index.html
     $ docker build -t josedom24/aplicacionweb:v2 .
     </code></pre>
-  <p>Podemos probarla en el entorno de desarrollo, eliminando el contenedor anterior:</p>
+  <p>The new image must be tested in the development environment, so
+  the previous release can be deleted:</p>
   <pre><code>
     $ doker container rm -f aplweb
     $ docker run --name aplweb2 -d -p 80:80 josedom24/aplicacionweb:v2
@@ -189,8 +192,10 @@ tema: white
   <img src="img/docker2.png"/>
 </section>
 <section>
-  <h4>Paso 6: Modificación de la aplicación</h4>
-  <p>Subimos la nueva versión de la aplicación. En el <strong>entorno de producción</strong>: bajamos la nueva versión, eliminamos el contenedor de la versión antigua y creamos un nuevo contenedor con la nueva imagen:</p>
+  <h4>Step 6: Modifying the application</h4>
+  <p>The new release is downloaded from the production environment,
+  removing the previous release and launching a container based on the
+  new image:</p>
   <pre><code>
     $ docker push josedom24/aplicacionweb:v1
     ...
@@ -206,49 +211,54 @@ tema: white
 </section>
 <section>
 <section>
-  <h2>Construir aplicaciones sin estado(Stateless)</h2>
+  <h2>Stateless vs statefull</h2>
   <ul>
-    <li>Una aplicación sin estado(Stateless) es aquella que no guarda ninguna información. Se ejecuta, hace su trabajo y se elimina.</li>
-    <li>Una aplicación con estado (Stateful) es aquella que necesita guardar información para su funcionamiento.</li>
-    <li>Si creo una aplicación desde 0 debería construirla sin estado</li>
-    <li>La mayoría de las aplicaciones actuales son Stateful.</li>
+    <li>A stateless application doesn't store any information about
+    a previous session in the server, so any session is a
+    complete new session from the server side</li>
+    <li>A stateful application stores information about any session in
+    the server, so following sessions depends on the information
+    stored.</li>
+    <li>Stateless applications are preferred when using containers,
+    many new applications claim to be stateless today</li>
+    <li>Traditional applications use to be stateful, so they're not
+    suitable to be run inside containers</li>
   </ul>
 </section>
 <section>
-  <h2>Uso de volúmenes persistentes</h2>
+  <h2>Persistent volumes</h2>
   <ul>
-    <li>La información que se guarda en un contenedor no es persistente.</li>
-    <li>Los contenedores que implementan aplicaciones Stateful deben guardar los datos en un medio de almacenamiento persistente. Desacoplamos la aplicación de los datos.</li>
-    <li>Con docker podemos gestionar volúmenes de datos, que nos permiten guardar la información en el host (almacenamiento persistente).</li>
+    <li>Data stored in a container is not persistent.</li>
+    <li>When data must be stored persistently, volumes must be used.</li>
   </ul>
 </section>
 <section>
-  <h2>Ventajas de guardar los datos en almacenamiento persistente</h2>
+  <h2>Persistent volumes</h2>
   <ul>
-    <li>Los contenedores son más livianos.</li>
-    <li>Puedo tener datos distintos en los distintos entornos de desarrollo.</li>
-    <li>Si un contenedor falla, no se pierde información sólo tengo que crear un nuevo contenedor.</li>
-    <li>La modificación de los datos de la aplicación no conlleva la construcción de una nueva imagen.</li>
+    <li>Containers are lightweight</li>
+    <li>Data not stored in the image</li>
+    <li>When a container fails, the data is not lost. A new container
+    can be created to use it</li>
   </ul>
 </section>
 <section>
-  <h4>Ejemplo de almacenamiento persistente</h4>
-  <p>Contenedor con mysql. guardamos la información de la base de datos en un volumen persistente:</p>
+  <h4>Example: Persistent storage</h4>
+  <p>Conatiner with a database, the data is stored in a persistent volume:</p>
   <pre><code>
     $ docker run --name some-mysql \ 
                  -v /opt/mysql:/var/lib/mysql \
                  -e MYSQL_ROOT_PASSWORD=asdasd \
                  -d mysql
   </code></pre>
-  <small>Comprobamos que se ha guardado la BD en el host:</small>
+  <small>Let's check the data have been stored:</small>
   <pre><code>
     /opt/mysql$ ls
     ibdata1  ib_logfile0  ib_logfile1  ibtmp1  #innodb_temp  mysql  mysql.ibd  undo_001  undo_002
   </code></pre>
 </section>
 <section>
-  <h4>Ejemplo de almacenamiento persistente</h4>
-  <small>Creamos una base de datos:</small>
+  <h4>Example: Persistent storage</h4>
+  <small>A new databse is created:</small>
   <pre><code>
   $ docker exec -it some-mysql bash
   root@75544a024f9b:/# mysql -u root -p -h localhost
@@ -256,14 +266,15 @@ tema: white
   create database dbtest;
   Query OK, 1 row affected (0.07 sec)
   </code></pre>
-<small>Nuestro contenedor falla!!!</small>
+<small>Suddenly the container fails! and it must be deleted</small>
 <pre><code>
   $ docker container rm -f some-mysql 
 </code></pre>
 </section>
 <section>
-  <h4>Ejemplo de almacenamiento persistente</h4>
-  <small>Podemos crear otro contenedor y comprobar como sigue existiendo la BD:</small>
+  <h4>Example: Persistent storage</h4>
+  <small>A new container can be created using the same persistent
+  volume and any all the data is available again:</small>
   <pre><code>
     $ docker run --name some-mysql2 \
                 -v /opt/mysql:/var/lib/mysql \
@@ -278,7 +289,6 @@ tema: white
     | dbtest             |
     ...
   </code></pre>
-
 </section>
 </section>
 
