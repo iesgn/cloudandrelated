@@ -26,6 +26,7 @@ automated configuration or containers.
 * PART II
   - [Instructions](https://iesgn.github.io/cloudandrelated/iaas-intructions.html#/)
   - [Activities](https://docs.google.com/presentation/d/1kNtrR-iPgkeAsoJ_lsEvEV7w5N-i82kv85DpThmjqFw/edit?usp=sharing)
+  - [Enroll as AWS Educate student](https://docs.google.com/presentation/d/1YbkEnfNz72zNuUpFcbpyhvAiLh6QaSVUqKM0mWrkNBo/edit?usp=sharing) 
   - Contents
     + [Introduction to IaaS](https://drive.google.com/file/d/1C1_ATJWkIxHGUcxKixiYU1XkzlKEsmpS/view?usp=sharing)
     + [Introduction to AWS](https://drive.google.com/file/d/13HJBw-XdbiLjueW3f04iEAqh_5rwHooI/view?usp=sharing)
