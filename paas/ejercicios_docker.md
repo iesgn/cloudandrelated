@@ -57,7 +57,22 @@ Vemos que el contenedor se está ejecutando, además con la opción `-p` mapeamo
 
 ## Ejercicio 2: Creando nuestras imágenes con Dockerfile
 
- 
+
+
+## Ejercicio 3: Instalación de wordpress
+
+Lo primero que vamos a hacer es crear un contenedor desde la imagen mariadb con el nombre `servidor_mariadb`, siguiendo las instrucción del <a href="https://hub.docker.com/_/mariadb/">repositorio</a> de docker hub:
+
+    $ docker run --name servidor_mariadb -e MYSQL_ROOT_PASSWORD=asdasd -d mariadb
+
+En este caso sólo hemos indicado la variable de entrono <em>MYSQL_ROOT_PASSWORD</em>, que es obligatoria, indicando la contraseña del usuario root. Si seguimos las instrucciones del <a href="https://hub.docker.com/_/mysql/">repositorio</a> de docker hub podemos observar que podríamos haber creado más variables, por ejemplo: `MYSQL_DATABASE`, `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_ALLOW_EMPTY_PASSWORD`.
+
+A continuación vamos a crear un nuevo contenedor, con el nombre _servidor_wp_, con el servidor web a partir de la imagen wordpress, enlazado con el contenedor anterior.
+
+    $ docker run --name servidor_wp -p 8000:80 --link servidor_mariadb:mariadb -d wordpress
+
+Para realizar la asociación entre contenedores hemos utilizado el parámetro `--link`, donde se indica el nombre del contenedor enlazado y un alias por el que nos podemos referir a él.
+
 ## Recursos sobre docker
 
 * [Introducción a docker](https://www.josedomingo.org/pledin/2015/12/introduccion-a-docker/)
