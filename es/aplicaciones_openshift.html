@@ -1,0 +1,209 @@
+---
+layout: presentacion
+title: Desplegando aplicaciones en Openshift
+tema: white
+---
+<section>
+  <h2>Desplegando aplicaciones en Openshift</h2>
+  <p>
+    Alberto Molina Coballes, José Luis Rodríguez Rodríguez and José Domingo Muñoz Rodríguez
+  </p>
+  <p><small>Cloud Computing in European schools. Project: 2017-1-ES01-KA202-038471</small></p>
+  <p><img src="img/UE.png" width="250px" border="0"/>
+    <img src="img/iesvalleinclan.png" width="250px" border="0"/>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+<section>
+<section>
+  <h3>Ventajas de OpenShift v3 para el despliegue de aplicaciones</h3>
+</section>
+<section>
+  <h4>Ventajas de OpenShift v3 para el despliegue de aplicaciones</h4>
+  <ul>
+    <li>Simplifica el ciclo de vida de implantación de nuestras aplicaciones que nos ofrece Docker.</li>
+    <ul>
+      <li>El desarrollador sólo se tiene que centrar en el desarrollo de su aplicación.</li>
+      <li>El proyecto se guardará en un repositorio GitHub</li>
+      <li>A la hora de desplegar la aplicación, OpenShift leerá el código fuente del repositorio GitHub</li>
+      <li>E inyectará el código fuente en una imagen base de Docker (diferencias según el lenguaje de programación) creando una nueva imagen de forma automática.</li>
+      <li><strong><a href="https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/builds_and_image_streams.html#source-build">source2image</a></strong></li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h4>Ventajas de OpenShift v3 para el despliegue de aplicaciones</h4>
+  <ul>
+    <li>Nos ofrece todas las ventajas del uso de Kubernetes:</li>
+    <ul>
+        <li>Tolerancia a errores</li>
+        <li>Escabilidad dinámica</li>
+        <li>Actualizaciones continúas</li>
+        <li>Despliegues automáticos</li>
+        <li>Enrutamiento a nuestras aplicaciones</li>
+        <li>Balanceo de carga</li>
+        <li>Volúmenes persistentes</li>
+    </ul>
+    <li>Pero además...</li>
+  </ul>
+</section>
+<section>
+    <h4>Ventajas de OpenShift v3 para el despliegue de aplicaciones</h4>
+    <ul>
+      <li>OpenShift nos ofrece una serie de extras:</li>
+      <ul>
+        <li>Gestión más sencilla de proyectos y usuarios</li>
+        <li>Conjunto de imágenes base para distintos lenguajes de programación y bases de datos</li>
+        <li>Asignación automática de nombre para nuestra aplicación (recurso service y ingress controller)</li>
+        <li>Gestión más sencilla de los volúmenes</li>
+        <li>Flujos de CI/CD integradas</li>
+        <li>Herramientas de métrica y monitorización</li>
+      </ul>
+      
+    </ul>
+</section>
+</section>
+<section>
+<section>
+  <h4>Recursos que nos ofrece OpenShift</h4>
+  <ul>
+    <li><strong>Proyectos</strong>: Permiten a los usuarios organizar y controlar sus aplicaciones.</li>
+    <li><strong>Aplicación</strong>: Nuestra aplicaciónes una aplicación Kubernetes, por los están formada por distintos recursos: deployment, pods, service, routes</li>
+    <li><strong>Builds</strong>: Es el proceso por el que se crea la imagen desde la que se va a crear nuestra aplicación. Tenemos muchas estratégias:</li>
+    <ul>
+      <li>Desde una imagen, desde un fichero Dockerfile, ...</li>
+      <li>source2image</li>
+      <li>Pipeline de Jenkins</li>
+      <li>...</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h4>Recursos que nos ofrece OpenShift</h4>
+  <ul>
+      <li><strong>Registro de imágenes</strong>: Las imágenes que se crean en los builds se guardan en un registro interno.</li>
+      <li><strong>Routes</strong>: Se asocia automática una ruta (nombre) para acceder a cada aplicación.</li>
+      <li><strong>Catálogo de servicios</strong>: Conjunto de imágenes y plantillas bases. A partir de ellas podemos construir (builds) nuevas imágenes con s2i.</li>
+      <li><strong>Web Console</strong>: Aplicación web que nos permite trabajar con nuestros recursos de OpenShift</li>
+      <li><strong>cli oc</strong>:Herramienta de línea de comandos que nos permite trabajar con nuestros recursos de OpenShift</li>
+  </ul>
+</section>
+</section>
+<section>
+<section>
+  <h4>Creamos nuestra primera aplicación</h4>
+  <ul>
+    <li>Vamos a crear una aplicación web estática con un servidor web apache2.</li>
+    <li>Nuestra página la tenemos en un repositorio de GitHub</li>
+    <li>Vamos a crear nuestra aplicación usando source2image: al crear la aplicación vamos a escoger una imagen con apache2 y vamos a indicar nuestro repositorio con el código, a partir de esta información se va a crear una imagen docker con apache2 y nuestro código que va a servir para desplegar la aplicación.</li>
+  </ul>
+</section>
+<section>
+  <h4>Creamos nuestra primera aplicación</h4>
+  <ol>
+  <li>Del catalogo elegimos la imagen de apache2</li>
+  <li>Indicamos un nombre y el repositorio donde tenemos nuestro código</li>
+  <li>Se va a crear un build:</li>
+  <ul>
+    <li>Se crea un pod a partir de la imagen de apache2 seleccionada.</li>
+    <li>Se inyecta en ese pod el código del repositorio.</li>
+    <li>Y se crea una nueva imagen con apache2 y nuestra aplicación.</li>
+  </ul>
+  </ol>
+</section>
+<section>
+  <h4>Creamos nuestra primera aplicación</h4>
+  <ol start="4">
+    <li>A partir de la imagen creada:</li>
+    <ul>
+      <li>Se crea un deployment que crear un pod con la aplicación.</li>
+      <li>Se crea un servicio de acceso a la aplicación</li>
+      <li>Y se crea una ruta de acceso.</li>
+    </ul>
+    <li>Ya tenemos desplegada nuestra aplicación y podemos acceder a ella.</li>
+  </ol>
+</section>
+<section>
+  <h3>Demo1: Despliegue de una página web estática en OpenShift v3</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/n938MmkxJWA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</section>
+</section>
+<section>
+<section>
+  <h4>Actualización y rollback de nuestra aplicación</h4>
+  <ol>
+    <li>Modificamos el código de nuestra aplicación, y guardamos los cambios en el repositorio.</li>
+    <li>Desde openshift realizamos un nuevo build, que construye una nueva imagen con la aplicación modificada.</li>
+    <li>A continuación, de forma automática, se realizará un nuevo deployment, que borrará los pods antiguos y creará nuevos desde la nueva imagen.</li>
+    <li>En cualquier momento podemos desplegar un deployment anterior, para volver a una versión anterior de nuestra aplicación.</li>
+  </ol>
+</section>
+<section>
+  <h4>Actualización y rollback de nuestra aplicación</h4>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/xY7W2e1ufWk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+</section>
+<section>
+  <section>
+    <h4>Despliegue de aplicaciones Python en OpenShift</h4>
+    <ol>
+      <li>Guardamos nuestra aplicación en un repositorio GitHub.</li>
+      <li>Al crear nuestra aplicación, escogemos en el catálogo la opción de imagen <strong>python</strong>.</li>
+      <li>Escogemos la versión de python e indicamos el repositorio de nuestra aplicación.</li>
+      <li>Durante el despliegue se van a instalar los módulos que encuentre en el fichero requirements.txt</li>
+      <li>El contenedor que vamos a crear ejecuta por defecto una aplicación qie se llame app.py</li>
+    </ol>
+  </section>
+  <section>
+    <h4>Despliegue de aplicaciones Python en OpenShift</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/6CjMm7iLdsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </section>
+  </section>
+    
+  <section>
+    <section>
+      <h4>Despliegue de aplicaciones PHP en OpenShift</h4>
+      <ol>
+        <li>Vamos a instalar un CMS PHP que utiliza una base de datos Sqlite. (
+          phpSQLiteCMS)</li>
+        <li><a href="https://github.com/ilosuna/phpsqlitecms.git">Repositorio GitHub</a></li>
+        <li>Al crear nuestra aplicación, escogemos en el catálogo la opción de imagen <strong>PHP</strong>.</li>
+        <li>Escogemos la versión de PHP e indicamos el repositorio de nuestra aplicación.</li>
+        <li>Durante el despliegue se van a instalar los módulos que encuentre en el fichero composer.json</li>
+      </ol>
+    </section>
+    <section>
+      <h4>Despliegue de aplicaciones PHP en OpenShift</h4>
+      <ol>
+        <li>En el directorio /cms/data se encuentran las bases de datos de la aplicación.</li>
+        <li>Los contenedores son <strong>efímeros</strong>, no tenemos almacenamiento persistente.</li>
+        <li>Cuando escalemos nuestra aplicación se va a crear otro pod con la base de datos inicial, en este nuevo pod no tenemos el mismo contenido que el original.</li>
+        <li>Si realizamos un nuevo despliegue los nuevos pods perderán los datos de la base de datos.</li>
+        <li><strong>¡¡¡Necesitamos volúmenes persistentes!!!</strong></li>
+      </ol>
+    </section>
+    <section>
+      <h4>Despliegue de aplicaciones PHP en OpenShift</h4>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/loV8Iglhp30" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+    </section>
+<section>
+    <section>
+      <h4>Despliegue de aplicaciones PHP en OpenShift con almacenamiento persistente</h4>
+      <ol>
+        <li>El directorio donde se almacenan las bases de datos es /cms/data</li>
+        <li>Nosotros vamos a crear un volumen persistente y lo vamos a montar en ese directorio.</li>
+        <li>En el primer despliegue que creemos vamos a copiar al volumen persistente las bases de datos inicializadas.</li>
+        <li>Para ello vamos a hacer un fork del repositorio y vamos a guardar en un directorio las bases de datos, para posteriormente poder copiarlas al volumen.</li>
+      </ol>
+    </section>
+    <section>
+      <h4>Despliegue de aplicaciones PHP en OpenShift con almacenamiento persistente</h4>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/z8zkktHbcac" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+  </section>
