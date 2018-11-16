@@ -29,3 +29,7 @@ Una vez terminado podemos ejecutar la siguiente instrucción para comprobar los 
     NAME       STATUS    ROLES     AGE       VERSION
     minikube   Ready     master    54s       v1.10.0
 
+Por último vamos a habilitar un addons cuya funcionalidad vamos a utilizar posteriormente:
+
+    $ minikube addons enable ingress
+    ingress was successfully enabled
