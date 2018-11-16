@@ -57,15 +57,37 @@ Vemos que el contenedor se está ejecutando, además con la opción `-p` mapeamo
 
 ## Ejercicio 2: Creando nuestras imágenes con Dockerfile
 
+Vamos a desplegar una página estática utilziando un servidor apache 2.4, para ello vamos a crear un directorio `mi_pagina`.Dentro creamos un directorio `public_html` donde vamos a guardar nuestra página:
 
+    $ cd public_html
+    echo "<h1>Prueba</h1>" > index.html
+
+En el directorio `mi_pagina` creamos un fichero `Dockerfile` con el siguiente contenido:
+
+    FROM debian
+    RUN apt-get update -y && apt-get install -y \
+            apache2 \
+            && apt-get clean && rm -rf /var/lib/apt/lists/*
+    COPY ./public_html /var/www/html/
+    ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
+Creamos la imagen que hemos definido en el fichero `Dockerfile`:
+
+    ~/mi_pagina$ docker build -t josedom24/aplicacionweb:v1 .
+
+* Comprueba que hemos creado una nueva imagen
+
+Finalmente creamos un contenedor a partir de nuestra nueva imagen:
+
+    $ docker run --name aplweb -d -p 80:80 josedom24/aplicacionweb:v1
 
 ## Ejercicio 3: Instalación de wordpress
 
 Lo primero que vamos a hacer es crear un contenedor desde la imagen mariadb con el nombre `servidor_mariadb`, siguiendo las instrucción del <a href="https://hub.docker.com/_/mariadb/">repositorio</a> de docker hub:
 
-    $ docker run --name servidor_mariadb -e MYSQL_ROOT_PASSWORD=asdasd -d mariadb
+    $ docker run --name servidor_mariadb -e MYSQL_ROOT_PASSWORD=asdasd -e MYSQL_DATABASE=wordpress -d mariadb
 
-En este caso sólo hemos indicado la variable de entrono <em>MYSQL_ROOT_PASSWORD</em>, que es obligatoria, indicando la contraseña del usuario root. Si seguimos las instrucciones del <a href="https://hub.docker.com/_/mysql/">repositorio</a> de docker hub podemos observar que podríamos haber creado más variables, por ejemplo: `MYSQL_DATABASE`, `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_ALLOW_EMPTY_PASSWORD`.
+Hemos indicado la variable de entrono <em>MYSQL_ROOT_PASSWORD</em>, que es obligatoria, indicando la contraseña del usuario root y `MYSQL_DATABASE` donde indicamos el nombre de la base de datos que debe crear. Si seguimos las instrucciones del <a href="https://hub.docker.com/_/mysql/">repositorio</a> de docker hub podemos observar que podríamos haber creado más variables, por ejemplo: `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_ALLOW_EMPTY_PASSWORD`.
 
 A continuación vamos a crear un nuevo contenedor, con el nombre _servidor_wp_, con el servidor web a partir de la imagen wordpress, enlazado con el contenedor anterior.
 
