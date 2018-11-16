@@ -1,6 +1,6 @@
 # minikube: Jugando con kubernetes 
 
-Minikube es un instalador que nos permite crear un cluster de kubernetes con un sólo nodo. minishift creará una máuina virtual en Virtualbox con kuberenetes instalado, lo primero es descargarnos minishift:
+Minikube es un instalador que nos permite crear un cluster de kubernetes con un sólo nodo. minishift creará una máquina virtual en Virtualbox con kuberenetes instalado, lo primero es descargarnos minishift:
 
     curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.30.0/minikube-linux-amd64 && \
             chmod +x minikube && \
