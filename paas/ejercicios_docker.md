@@ -70,4 +70,3 @@ Vemos que el contenedor se está ejecutando, además con la opción `-p` mapeamo
 * [Creando servidores docker con Docker Machine](https://www.josedomingo.org/pledin/2016/05/creando-servidores-docker-con-docker-machine/)
 * [Gestión del almacenamiento en docker](https://www.josedomingo.org/pledin/2016/05/gestion-del-almacenamiento-en-docker/)
 * [Gestionando el almacenamiento docker con Dockerfile](https://www.josedomingo.org/pledin/2016/11/gestionando-el-almacenamiento-docker-con-dockerfile/)
-* [Creando servidores docker con Docker Machine](https://www.josedomingo.org/pledin/2016/05/creando-servidores-docker-con-docker-machine/)
