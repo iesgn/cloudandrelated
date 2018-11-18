@@ -1,0 +1,114 @@
+---
+layout: presentacion
+title: Introducción a Openshift
+tema: white
+---
+<section>
+  <h2>Introducción a OpenShift</h2>
+  <h3>Aplicaciones orientadas a microservicios</h3>
+  <p>
+    Alberto Molina Coballes, José Luis Rodríguez Rodríguez and José Domingo Muñoz Rodríguez
+  </p>
+  <p><small>Cloud Computing in European schools. Project: 2017-1-ES01-KA202-038471</small></p>
+  <p><img src="img/UE.png" width="250px" border="0"/>
+    <img src="img/iesvalleinclan.png" width="250px" border="0"/>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+
+<section>
+<section>
+  <h3>Despliegue tradicional de aplicaciones</h3>
+  <ul>
+    <li>Las aplicaciones tradicionalmente se implementan como un sólo conjunto de librerías y archivos de configuración.</li>
+    <li>Se implementan en un sistema operativo (en servidores físicos o virtuales) con un conjunto se servicios en ejecución (web, base de datos, ...).</li>
+    <li>Desventaja 1: Las actualizaciones del S.O. puede interrumpir la aplicación.</li>
+    <li>Desventaja 2: Si en un mismo sistema tenemos varias aplicaciones, las actualizaciones de librerías de una ella puede afectar a otras aplicaciones.</li>
+    <li>Posible solución: Sistemas en alta disponibilidad que minimicen el tiempo de parada de una aplicación.</li>
+  </ul>
+</section>
+<section>
+  <h3>¿Qué alternativa podemos encontrar hoy en día?</h3>
+  <h2>Los Contenedores</h2>
+  <img src="img/containers.png"/><br/>
+  <small>Red Hat</small>
+</section>
+<section>
+  <h2>¿Qué son los contenedores?</h2>
+  <p>Los contenedores son un tipo de partición aislada dentro de un solo sistema operativo. Ofrecen muchos de los mismos beneficios que las máquinas virtuales, como seguridad, almacenamiento y aislamiento de redes, pero requieren muchos menos recursos de hardware y son más rápidos de iniciar y finalizar. También aíslan las librerías y el entorno de tiempo de ejecución (como CPU y almacenamiento) utilizados por una aplicación para minimizar el impacto de una actualización de SO en el SO del host.</p>
+</section>
+<section>
+  <h2>Ventajas del uso de contenedores</h2>
+  <ul>
+    <li>Aislamiento del entorno.</li>
+    <li>Menor tamaño del hardware.</li>
+    <li>Implementación rápida.</li>
+    <li>Reutilización de componentes.</li>
+    <li>Minimización del impacto frente a errores/cambios.</li>
+  </ul>
+</section>
+<section>
+  <h2>Desventajas del uso de contenedores</h2>
+  <ul>
+    <li>Complejidad</li>
+  </ul>
+</section>
+<section>
+  <h2>Despliegue de aplicaciones basada microservicios</h2>
+  <p>Los contenedores fomentan el enfoque de desarrollo aplicaciones basada en <strong>microservicios</strong> (us aplicaciones monolíticas), ya que los distintos servicios en que dividimos una aplicación se pueden ejecutar de manera muy sencilla en distintos contenedores.</p>
+  <p>Ventajas: Cada contenedor ofrece un servicio, son más fáciles de mantener, de escalar, de iniciar, de actualizar,...</p>
+</section>
+</section>
+<section>
+<section>
+  <h2>OpenShift</h2>
+  <p>Plataforma de Desarrollo, con características de Cloud Computing (PaaS) desarrollada por Red Hat</p>
+  <ul>
+    <li>Nos centramos en el desarrollo de la aplicación</li>
+    <li>Openshift utiliza internamente Docker y Kubernetes</li>
+    <li>Nos permite desplegar aplicaciones en diferentes entornos (desarrollo,  producción,...)</li>
+    <li>Facilita la integración continúa</li>
+    <li>Tenemos varías formas de interactuar con OpenShift: aplicación web, CLI o API REST</li>
+  </ul>
+</section>
+<section>
+  <h2>Docker</h2>
+  <cite>“Build, Ship and Run. Any application, Anywhere”</cite>
+  <ul>
+    <li>Docker es un sistema de virtualización ligera que nos permite trabajar con contenedores de aplicación.</li>
+    <li>Los contenedores son autosuficientes (aunque pueden depender de otros contenedores)  no necesitando nada más que la imagen del contenedor para que funcionen los servicios que ofrece.</li>
+    <li>Contenedores múltiples comparten el mismo núcleo, pero cada contenedor puede ser restringido a utilizar sólo una cantidad definida de recursos como CPU, memoria y E/S.</li>
+  </ul>
+</section>
+<section>
+  <h2>Kubernetes</h2>
+  <ul>
+    <li>Kubernetes es un sistema de código abierto que nos permite despliegues automáticos, escabilidad y gestión de contenedores de aplicaciones.</li>
+    <li>Gestiona un conjunto de servidores donde se ejecutan los contenedores.</li>
+    <li>Las aplicaciones reales están formados por varios contenedores, K8S nos ofrece mecanismos para gestionarlos: implantación, asegurar el servicio, tolerancia a errores, escabilidad, actualizaciones continúas, integración y despliegues automáticos, balanceo de carga, monitorización,... </li>
+  </ul>
+</section>
+</section>
+<section>
+  <h2>Soluciones disponibles de OpenShift</h2>
+  <ul>
+    <li><strong><a href="https://www.okd.io/">OKD (origin)</a></strong>: La distribución de la comunidad que puedes instalar en tu infraestructura. </li>
+    <li><strong><a href="https://www.openshift.com/products/online/">OpenShift Online</a></strong>: Versión que se ejecuta en el cloud público de Red Hat. Dos planes: Free y Pro.</li>
+    <li><strong><a href="https://www.openshift.com/products/dedicated/">OpenShift Dedicated</a></strong>:te permite disponer de un cluster de Openshift gestionado por Red Hat para que despliegues tus aplicaciones.</li>
+    <li><strong><a href="https://www.openshift.com/products/container-platform/">OpenShift Container Platform</a></strong>:te permite disponer de un cluster de Openshift en tu propia infraestructura gestionado por Red Hat.</li>
+  </ul>
+</section>
+<section>
+<section>
+  <h2>Tecnologías soportadas por OpenShift</h2>
+  <img src="img/tecnologias.png"/>
+  <h3><a href="https://www.openshift.com/products/features/containers/#online3">Ver todas las tecnologías...</a></h3>
+</section>
+<section>
+  <img src="img/openshift1.png"/>
+</section>
+</section>

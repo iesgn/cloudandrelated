@@ -1,0 +1,265 @@
+---
+layout: presentacion
+title: Ciclo de vida de nuestras aplicaciones en docker
+tema: white
+---
+<section>
+  <h2>Ciclo de vida de nuestras aplicaciones en docker</h2>
+  <p><strong>"Build, Ship and Run. Any application, Anywhere"</strong></p>
+  <p>
+    Alberto Molina Coballes, José Luis Rodríguez Rodríguez and José Domingo Muñoz Rodríguez
+  </p>
+  <p><small>Cloud Computing in European schools. Project: 2017-1-ES01-KA202-038471</small></p>
+  <p><img src="img/UE.png" width="250px" border="0"/>
+    <img src="img/iesvalleinclan.png" width="250px" border="0"/>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+
+<section>
+  <h3>Docker</h3>
+  <ul>
+    <li>Virtualización ligera: aprovechamos mejor el hardware y únicamente necesitamos el sistema de archivos mínimo para que funcionen los servicios.</li>
+    <li>Los contenedores son autosuficientes, sólo necesitamos una imagen para crear contenedores.</li>
+    <li>Una imagen Docker podríamos entenderla como <em>"un Sistema Operativo con aplicaciones instaladas"</em>.</li>
+    <li>El proyecto nos ofrece es un repositorio de imágenes: <a href="https://hub.docker.com/">Registry Docker Hub</a> que nos permite gestionar imágenes.</li>
+    <li>Un contenedor suele ejecutar un sólo servicio. Una aplicación suele necesitar la ejecución de varios contenedores que trabajan juntos.</li>
+  </ul>
+</section>
+<section>
+  <h3>Componentes de Docker</h3>
+  <ul>
+    <li><strong>Docker Engine</strong>: Es un demonio que corre sobre cualquier distribución de Linux y que expone una API externa para la gestión de imágenes y contenedores.</li>
+    <li><strong>Docker Client</strong>: Es el cliente de línea de comandos (CLI) que nos permite gestionar el Docker Engine. El cliente docker se puede configurar para trabajar con con un Docker Engine local o remoto.</li>
+    <li><strong>Docker Registry</strong>: La finalidad de este componente es almacenar las imágenes generadas por el Docker Engine. Nos permite distribuir nuestras imágenes. Podemos instalar un registro privado, o hacer uso de uno público como Docker Hub.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Ciclo de vida de nuestras aplicaciones en docker</h2>
+</section>
+<section>
+  <h4>Paso 1:Desarrollo de nuestra aplicación</h4>
+  <p>En este ejemplo vamos a desarrollar una página web que va a ser servida por un servidor web que se ejecutará en un contenedor Docker.</p>
+  <p>Por lo tanto lo primero que debemos hacer es crear nuestra página web:</p>
+  <pre><code data-trim data-noescape>
+  $ cd public_html
+  echo "&lt;h1&gt;Prueba&lt;/h1&gt;" > index.html
+  </code></pre>
+</section>
+<section>
+<section>
+  <h4>Paso 2: Creación de la imagen Docker</h4>
+  <p>Utilizando un fichero <code>Dockerfile</code> definimos como vamos a crear nuestra imagen:</p>
+  <ul>
+    <li>Qué imagen base vamos a utilizar.</li>
+    <li>Qué paquetes vamos a instalar</li>
+    <li>Donde copiamos nuestro código fuente (página web)</li>
+    <li>Indicamos el servicio que va a ejecutar el contenedor (servidor apache)</li>
+  </ul>
+</section>
+<section>
+  <h4>Paso 2: Creación de la imagen Docker</h4>
+  <p><code>Dockerfile</code></p>
+  <pre><code>
+    FROM debian
+    RUN apt-get update -y && apt-get install -y \
+        apache2 \
+        && apt-get clean && rm -rf /var/lib/apt/lists/*
+    COPY ./public_html /var/www/html/
+    ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+  </code></pre>
+  <p>Podríamos usar una imagen base con apache2 ya instalado:</p>
+  <pre><code>
+    FROM httpd:2.4
+    COPY ./public_html /usr/local/apache2/htdocs/
+  </code></pre>
+</section>
+<section>
+  <h4>Paso 2: Creación de la imagen Docker</h4>
+  <p>Creamos nuestra imagen, desde el directorio donde tenemos el <code>Dockerfile</code>, ejecutamos:</p>
+  <pre><code>
+    $ docker build -t josedom24/aplicacionweb:v1 .
+    Sending build context to Docker daemon  3.584kB
+    Step 1/4 : FROM debian
+     ---> be2868bebaba
+    Step 2/4 : RUN apt-get update -y && apt-get install -y apache2 & apt-get clean && rm -rf /var/lib/apt/lists/*
+     ...
+    Successfully built 518871c9fc0c
+    Successfully tagged josedom24/aplicacionweb:v1
+  </code></pre>
+</section>
+<section>
+  <h4>Paso 2: Creación de la imagen Docker</h4>
+  <p>Podemos comprobar que en nuestro entorno local tenemos la imagen que acabamos de crear:</p>
+  <pre><code>
+    $ docker image ls
+    REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+    josedom24/aplicacionweb   v1                  b2e0df215145        7 seconds ago       204MB
+    debian                    latest              be2868bebaba        10 days ago         101MB
+  </code></pre>
+</section>
+</section>
+<section>
+<section>
+  <h4>Paso 3: Probamos nuestra aplicación en el entorno de desarrollo</h4>
+  <p>Creamos un contenedor en nuestro entorno de desarrollo:</p>
+  <pre><code>
+  $ docker run --name aplweb -d -p 80:80 josedom24/aplicacionweb:v1
+  fbdd73529e2bb2d9ee9c6415031513741688e6d38509572251f5b624ed7dc23f
+  
+  $ docker container ls
+  CONTAINER ID        IMAGE                        COMMAND                    CREATED             STATUS              PORTS                NAMES
+  fbdd73529e2b        josedom24/aplicacionweb:v1   "/usr/sbin/apache2ct…"   6 seconds ago       Up 5 seconds        0.0.0.0:80->80/tcp   aplweb
+  </code></pre>
+</section>
+<section>
+  <h4>Paso 3: Probamos nuestra aplicación en el entorno de desarrollo</h4>
+  <p>Probamos nuestra aplicación:</p>
+  <img src="img/docker1.png"/>
+</section>
+</section>
+<section>
+  <h4>Paso 4: Distribuimos nuestra imagen</h4>
+  <p>Vamos a subir nuestra imagen al registro Docker Hub:</p>
+  <pre><code>
+    $ docker login
+    ...
+    $ docker push josedom24/aplicacionweb:v1
+    The push refers to repository [docker.io/josedom24/aplicacionweb]
+    ac126159496f: Pushed 
+    cc15ec5f0c43: Pushed 
+    ...
+  </code></pre>
+  <p>Comprobamos que está subida al repositorio:</p>
+  <pre><code>
+    $ docker search josedom24/aplicacionweb
+    NAME                     DESCRIPTION...
+    josedom24/aplicacionweb:v1   
+  </code></pre>
+</section>
+<section>
+  <h5>Paso 5:Implantación de la aplicación</h5>
+  <p>En el el <strong>entorno de producción</strong>, bajamos la imagen de Docker Hub y creamos el contenedor:</p>
+  <pre><code>
+    $ docker pull josedom24/aplicacionweb:v1
+    v1: Pulling from josedom24/aplicacionweb
+    9a029d5ca5bb: Pull complete 
+    ...
+    $ docker run --name aplweb_prod -d -p 80:80 josedom24/aplicacionweb:v1
+  </code></pre>
+</section>
+<section>
+<section>
+  <h4>Paso 6: Modificación de la aplicación</h4>
+  <p>Al modificar el código de la aplicación tenemos que generar una nueva imagen.</p>
+  <pre><code>
+    $ cd public_html
+    echo "&lt;h1&gt;Prueba 2&lt;/h1&gt;" > index.html
+    $ docker build -t josedom24/aplicacionweb:v2 .
+    </code></pre>
+  <p>Podemos probarla en el entorno de desarrollo, eliminando el contenedor anterior:</p>
+  <pre><code>
+    $ doker container rm -f aplweb
+    $ docker run --name aplweb2 -d -p 80:80 josedom24/aplicacionweb:v2
+  </code></pre>
+  <img src="img/docker2.png"/>
+</section>
+<section>
+  <h4>Paso 6: Modificación de la aplicación</h4>
+  <p>Subimos la nueva versión de la aplicación. En el <strong>entorno de producción</strong>: bajamos la nueva versión, eliminamos el contenedor de la versión antigua y creamos un nuevo contenedor con la nueva imagen:</p>
+  <pre><code>
+    $ docker push josedom24/aplicacionweb:v1
+    ...
+  </code></pre>
+  <p>En producción:</p>
+  <pre><code>
+    $ docker pull josedom24/aplicacionweb:v2
+    ...
+    $ doker container rm -f aplweb_prod
+    $ docker run --name aplweb2_prod -d -p 80:80 josedom24/aplicacionweb:v2
+  </code></pre>
+</section>
+</section>
+<section>
+<section>
+  <h2>Construir aplicaciones sin estado(Stateless)</h2>
+  <ul>
+    <li>Una aplicación sin estado(Stateless) es aquella que no guarda ninguna información. Se ejecuta, hace su trabajo y se elimina.</li>
+    <li>Una aplicación con estado (Stateful) es aquella que necesita guardar información para su funcionamiento.</li>
+    <li>Si creo una aplicación desde 0 debería construirla sin estado</li>
+    <li>La mayoría de las aplicaciones actuales son Stateful.</li>
+  </ul>
+</section>
+<section>
+  <h2>Uso de volúmenes persistentes</h2>
+  <ul>
+    <li>La información que se guarda en un contenedor no es persistente.</li>
+    <li>Los contenedores que implementan aplicaciones Stateful deben guardar los datos en un medio de almacenamiento persistente. Desacoplamos la aplicación de los datos.</li>
+    <li>Con docker podemos gestionar volúmenes de datos, que nos permiten guardar la información en el host (almacenamiento persistente).</li>
+  </ul>
+</section>
+<section>
+  <h2>Ventajas de guardar los datos en almacenamiento persistente</h2>
+  <ul>
+    <li>Los contenedores son más livianos.</li>
+    <li>Puedo tener datos distintos en los distintos entornos de desarrollo.</li>
+    <li>Si un contenedor falla, no se pierde información sólo tengo que crear un nuevo contenedor.</li>
+    <li>La modificación de los datos de la aplicación no conlleva la construcción de una nueva imagen.</li>
+  </ul>
+</section>
+<section>
+  <h4>Ejemplo de almacenamiento persistente</h4>
+  <p>Contenedor con mysql. guardamos la información de la base de datos en un volumen persistente:</p>
+  <pre><code>
+    $ docker run --name some-mysql \ 
+                 -v /opt/mysql:/var/lib/mysql \
+                 -e MYSQL_ROOT_PASSWORD=asdasd \
+                 -d mysql
+  </code></pre>
+  <small>Comprobamos que se ha guardado la BD en el host:</small>
+  <pre><code>
+    /opt/mysql$ ls
+    ibdata1  ib_logfile0  ib_logfile1  ibtmp1  #innodb_temp  mysql  mysql.ibd  undo_001  undo_002
+  </code></pre>
+</section>
+<section>
+  <h4>Ejemplo de almacenamiento persistente</h4>
+  <small>Creamos una base de datos:</small>
+  <pre><code>
+  $ docker exec -it some-mysql bash
+  root@75544a024f9b:/# mysql -u root -p -h localhost
+  ...
+  create database dbtest;
+  Query OK, 1 row affected (0.07 sec)
+  </code></pre>
+<small>Nuestro contenedor falla!!!</small>
+<pre><code>
+  $ docker container rm -f some-mysql 
+</code></pre>
+</section>
+<section>
+  <h4>Ejemplo de almacenamiento persistente</h4>
+  <small>Podemos crear otro contenedor y comprobar como sigue existiendo la BD:</small>
+  <pre><code>
+    $ docker run --name some-mysql2 \
+                -v /opt/mysql:/var/lib/mysql \
+                -e MYSQL_ROOT_PASSWORD=asdasd \
+                -d mysql
+    
+    $ docker exec -it some-mysql2 bash
+    root@878f77d80fcf:/# mysql -u root -p -h localhost
+    ...
+    show databases;
+    ...
+    | dbtest             |
+    ...
+  </code></pre>
+
+</section>
+</section>
+

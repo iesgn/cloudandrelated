@@ -1,0 +1,357 @@
+---
+layout: presentacion
+title: ¿Qué nos aporta Kubernetes en el despliegue de aplicaciones?
+tema: white
+---
+<section>
+  <h2>¿Qué nos aporta Kubernetes en el despliegue de aplicaciones?</h2>
+    <p>
+    Alberto Molina Coballes, José Luis Rodríguez Rodríguez and José Domingo Muñoz Rodríguez
+  </p>
+  <p><small>Cloud Computing in European schools. Project: 2017-1-ES01-KA202-038471</small></p>
+  <p><img src="img/UE.png" width="250px" border="0"/>
+    <img src="img/iesvalleinclan.png" width="250px" border="0"/>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+
+<section>
+  <h3>Kubernetes</h3>
+  <p>Kubernetes es un orquestador de contenedores de aplicación escrito en Go y con licencia Apache-2.0, fue lanzado el 21 de julio de 2015 por Google que rápidamente se alió con la Linux Foundation para crear la Cloud Native Computing Foundation (CNCF) y dejó el proyecto en sus manos. </p>
+  <p>Gestionamos un cluster:</p>
+  <pre><code>
+kubectl get nodes
+NAME     STATUS   ROLES    AGE     VERSION
+nodo-1   Ready    master   2m32s   v1.12.2
+nodo-2   Ready    &lt;none&gt;   42s     v1.12.2
+nodo-3   Ready    &lt;none&gt;   42s     v1.12.2
+ </code></pre>
+</section>
+<section>
+<section>
+  <h3>Recursos de Kubernetes</h3>
+  <img src="img/kubernetes1.png"/>
+</section>
+<section>
+  <h3>¿Qué nos aportan cada uno de los recursos de Kubernetes? (I)</h3>
+  <ul>
+    <li><strong>Pods</strong>: La unidad mínima de computación, permite ejecutar contenedores. Representa un conjunto de contenedores y almacenamiento compartido que comparte una única IP.</li>
+    <li><strong>ReplicaSet</strong>: Asegura que siempre se ejecute un número de replicas de un pod determinado. Nos proporciona las siguientes características:
+      <ul>
+        <li>Que no haya caída del servicio</li>
+        <li>Tolerancia a errores</li>
+        <li>Escabilidad dinámica</li>
+      </ul>
+  </li>
+  </ul>
+</section>
+<section>
+  <h3>¿Qué nos aportan cada uno de los recursos de Kubernetes? (II)</h3>
+  <ul>
+    <li><strong>Deployment</strong>: Nos permite manejar los <em>ReplicaSets</em>. Nos proporciona las siguientes características:
+      <ul>
+        <li>Actualizaciones continúas</li>
+        <li>Despliegues automáticos</li>
+      </ul>
+  </li>
+  <li>
+    <strong>Service</strong>: Nos permite el acceso a los pod.
+  </li>
+  <li>
+    <strong>Ingress</strong>: Nos permite implementar un proxy inverso para el acceso a los distintos servicios establecidos. Estos dos elementos nos proporcionan la siguiente funcionalidad:
+    <ul>
+      <li>Balanceo de carga</li>
+    </ul>
+  </li>
+  </ul>
+</section>
+<section>
+  <h3>¿Qué nos aportan cada uno de los recursos de Kubernetes? (III)</h3>
+  <ul>
+    <li>Otros recursos de un cluster Kubernetes nos pueden proporcional características adicionales:
+    <ul>
+      <li>Migraciones sencillas</li>
+      <li>Monitorización</li>
+      <li>Control de acceso basada en Roles</li>
+      <li>Integración y despliegue continuo</li>
+    </ul>
+  </li>
+  </ul>
+</section>
+</section>
+<section>
+<section>
+  <h3>Ejemplo: Tolerancia a fallos</h3>
+</section>
+<section>
+  <ul><li>Creamos un despliegue a partir de la imagen <code>josedom24/aplicacionweb:v1</code> y comprobamos que se ha creado un pod:</li></ul>
+    <pre><code>
+kubectl run pagweb --image josedom24/aplicacionweb:v1
+    
+kubectl get pod
+NAME                     READY   STATUS    RESTARTS   AGE
+pagweb-5d756cb86-wm4zg   1/1     Running   0          3m7s
+</code></pre>
+</section>
+<section>
+<ul><li>Si por cualquier motivo el pod deja de funcionar, comprobamos que Kubernetes vuelve a crear un nuevo pod:</li></ul>    
+<pre><code>
+kubectl delete pod/pagweb-5d756cb86-wm4zg
+pod "pagweb-5d756cb86-wm4zg" deleted
+
+kubectl get pod
+NAME                     READY   STATUS        RESTARTS   AGE
+pagweb-5d756cb86-2w2xq   1/1     Running       0          21s
+pagweb-5d756cb86-wm4zg   1/1     Terminating   0          4m56s
+</code></pre>
+</section>
+<section>
+<ul><li>Además del pod se ha creado un recurso Deployment y otro ReplicaSet:</li></ul>
+<pre><code>
+kubectl get deploy
+NAME     DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+pagweb   1         1         1            1           5m
+
+kubectl get rs
+NAME               DESIRED   CURRENT   READY   AGE
+pagweb-5d756cb86   1         1         1       5m
+</code></pre>
+<ul><li>El recurso ReplicaSet es el responsable de este funcionamiento.</li></ul>
+</section>
+</section>
+<section>
+<section>
+  <h3>Ejemplo: Escabilidad</h3>
+</section>
+<section>
+  <ul><li>ReplicaSet también es el responsable de las replicas. En cualquier podemos escalar el número de pods:</li></ul>
+<pre><code>
+kubectl scale deploy pagweb --replicas=3
+deployment.extensions/pagweb scaled
+</code></pre>
+<ul><li>Y podemos comprobar que se han creado 3 pods ejecutándose en distintos nodos:</li></ul>
+<pre><code>
+kubectl get pod -o wide
+NAME                     READY   STATUS    ...     NODE   ...
+pagweb-5d756cb86-2w2xq   1/1     Running   ...   nodo-2   ...
+pagweb-5d756cb86-gwfgf   1/1     Running   ...   nodo-3   ...
+pagweb-5d756cb86-wppxj   1/1     Running   ...   nodo-3   ...
+</code></pre>
+</section>
+</section>
+<section>
+<section>
+    <h3>Ejemplo: Accediendo a nuestra aplicación. Balanceo de carga</h3>
+</section>
+<section>
+  <ul><li>Para acceder a nuestra aplicación debemos crear un recurso Service:</li></ul>
+  <pre><code>
+kubectl expose deployment pagweb --port=80 --type=NodePort
+service/pagweb exposed
+
+kubectl get services
+NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+...
+pagweb       NodePort    10.98.140.134   &lt;none&gt;        80:30848/TCP   18s
+</code></pre>
+</section>
+<section>
+  <ul><li>Podemos acceder a la IP del nodo master, al puerto 30848:</li></ul>
+  <img src="img/kubernetes2.png"></img>
+  <ul><li>Cada vez que accedemos a la aplicación se está accediendo a uno de los 3 pods que hemos creado. (Balanceo de carga)</li></ul>
+</section>
+</section>
+<section>
+<section>
+  <h3>Ejemplo: Actualizaciones continúas</h3>
+</section>
+<section>
+  <ul><li>Podemos modificar nuestro despliegue para actualizar a la última versión de nuestra aplicación. Comprobamos que se crean 3 nuevos pods con la última versión de nuestra aplicación:</li></ul>
+  <pre><code>
+kubectl set image deployment pagweb pagweb=josedom24/aplicacionweb:v2
+deployment.extensions/pagweb image updated
+
+kubectl get pods
+NAME                      READY   STATUS        RESTARTS   AGE
+pagweb-5d756cb86-2w2xq    1/1     Terminating   0          25m
+pagweb-5d756cb86-gwfgf    1/1     Terminating   0          21m
+pagweb-5d756cb86-wppxj    1/1     Terminating   0          21m
+pagweb-7f6d9648fc-6kzf4   1/1     Running       0          8s
+pagweb-7f6d9648fc-bhb2z   1/1     Running       0          2s
+pagweb-7f6d9648fc-r8vql   1/1     Running       0          5s
+</code></pre>
+</section>
+<section>
+  <ul><li>Y podemos acceder a la nueva versión de nuestra aplicación:</li></ul>
+  <img src="img/kubernetes3.png"></img>
+</section>
+</section>
+<section>
+<section>
+  <h3>Ejemplo: Rollback de nuestra aplicación</h3>
+</section>
+<section>
+  <ul><li>Si por cualquier motivo quiero volver a la versión anterior de nuestro despliegue:</li></ul>
+  <pre><code>
+kubectl rollout undo deployment/pagweb
+deployment.extensions/pagweb
+
+kubectl get pods
+NAME                      READY   STATUS        RESTARTS   AGE
+pagweb-5d756cb86-d4tn4    1/1     Running       0          12s
+pagweb-5d756cb86-fvrfc    1/1     Running       0          6s
+pagweb-5d756cb86-g6wsc    1/1     Running       0          9s
+pagweb-7f6d9648fc-6kzf4   1/1     Terminating   0          8m58s
+pagweb-7f6d9648fc-bhb2z   1/1     Terminating   0          8m52s
+pagweb-7f6d9648fc-r8vql   1/1     Terminating   0          8m55s
+</code></pre>
+</section>
+<section>
+  <ul><li>Y volveríamos tener la versión anterior de nuestra aplicación:</li></ul>
+  <img src="img/kubernetes2.png"></img>
+  <ul><li>Tenemos un historial de versiones de nuestro despliegues y podemos volver a un estado anterior cuando lo necesitemos.</li></ul>
+</section>
+</section>
+<section>
+<section>
+  <h3>Ejemplo: Enrutando nuestras aplicaciones.</h3>
+</section>
+<section>
+  <ul><li>El recurso Ingress Controller nos ofrece un proxy inverso, que por medio de reglas de encaminamiento nos permite el acceso a nuestras aplicaciones por medio de nombres.</li></ul>
+  <ul><li>Necesitamos un fichero de configuración <code>ingress.yaml</code></li></ul>
+  <pre><code>
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: pagweb
+spec:
+  rules:
+  - host: pagweb.172.22.200.165.nip.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: pagweb
+          servicePort: 80
+  
+  </code></pre>
+</section>
+<section>
+  <ul><li>Y ahora creamos el recurso ingress:</li></ul>
+  <pre><code>
+kubectl create -f ingress.yaml 
+ingress.extensions/pagweb created
+
+kubectl get ingress
+NAME     HOSTS                          ADDRESS   PORTS   AGE
+pagweb   pagweb.172.22.200.165.nip.io             80      6s
+ </code></pre>
+</section>
+<section>
+  <ul><li>Y podemos acceder a nuestra aplicación por medio del nombre que hemos asignado:</li></ul>
+  <img src="img/kubernetes4.png"></img>
+</section>
+</section>
+<section>
+<section>
+  <h3>Ejemplo: Volúmenes persistentes en Kubernetes</h3>
+</section>
+<section>
+  <ul><li>El administrador del cluster debe crear un recurso PersistentVolumen, donde define el total de almacenamiento disponible en el cluster.</li>
+  <li>Nosotros hemos creado una unidad nfs compartida entre los nodos:</li></ul>
+  <pre><code>
+kubectl get pv
+NAME     CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
+nfs-pv   5Gi        RWX            Recycle          Available                                   6s
+  </code></pre>
+</section>
+<section>
+  <ul><li>Debemos reservar espacio en el PersistentVolumen, creando un recurso PersistentVolumenClaim, para ello utilizamos el fichero pvc.yaml:</li></ul>
+<pre><code>
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+</code></pre>
+</section>
+<section>
+<pre><code>
+kubectl create -f pvc.yaml 
+persistentvolumeclaim/nfs-pvc created
+
+kubectl get pvc
+NAME      STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+nfs-pvc   Bound    nfs-pv   5Gi        RWX                           4s
+</code></pre>
+<ul><li>Como podemos observar al crear el pvc se busca del conjunto de pv uno que cumpla sus requerimientos, y se asocian (status bound) por lo tanto el tamaño indicado en el pvc es el valor mínimo de tamaño que se necesita, pero el tamaño real será el mismo que el del pv asociado.</li></ul> 
+</section>
+<section>
+  <ul><li>A continuación vamos a crear un deploy donde vamos a montar nuestro volumen, utilizamos el fichero pod-deploy.yaml:</li></ul>
+  <pre><code>
+      apiVersion: extensions/v1beta1
+      kind: Deployment
+      metadata:
+        name: nginx
+        labels:
+          app: nginx
+      spec:
+        template:
+          metadata:
+            labels:
+              app: nginx
+          spec:
+            containers:
+            - image: nginx
+              name: nginx
+              ports:
+              - name: http
+                containerPort: 80
+              volumeMounts:
+              - mountPath: /usr/share/nginx/html
+                name: nfs-vol
+            volumes:
+            - name: nfs-vol
+              persistentVolumeClaim:
+                claimName: nfs-pvc
+        </code></pre>
+</section>
+<section>
+  <ul><li>Creamos el deploy y el servicio:</li></ul>
+  <pre><code>
+kubectl create -f nginx-deploy.yaml 
+deployment.extensions/nginx created
+
+kubectl expose deploy nginx --port=80 --type=NodePort
+service/nginx exposed
+
+kubectl get deploy,service
+NAME                           DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+deployment.extensions/nginx    1         1         1            1           86s
+      
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+service/nginx        NodePort    10.110.53.26    &lt;none&gt;        80:30196/TCP   15s
+  </code></pre>
+</section>
+<section>
+  <ul><li>Comprobamos que al acceder a la aplicación no tenemos ninguna página:</li></ul>
+  <img src="img/kubernetes5.png"/>
+</section>
+<section>
+  <ul><li>Por último escribimos el contenido en el directorio compartido, y accedemos a la aplicación:</li></ul>
+  <pre><code>
+echo "It works..." | ssh debian@172.22.200.165 'cat >> /var/shared/index.html' 
+  </code></pre>
+  <img src="img/kubernetes6.png"/>
+</section>
+</section>
