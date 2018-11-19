@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "debian/stretch64"
+  config.vm.box = "ubuntu/bionic64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -64,21 +64,15 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
-     apt-get update
-     apt-get -y upgrade
-     apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
-     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-     apt-get update
-     apt-get -y install docker-ce
-         usermod -aG docker vagrant
-         curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-         chmod +x /usr/local/bin/docker-compose
+     sudo apt-get update
+     sudo apt-get -y upgrade
+     sudo apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+     sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -     
+     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+     sudo apt-get update
+     sudo apt-get -y install docker-ce
+  	 sudo usermod -aG docker vagrant
+	   sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	 sudo chmod +x /usr/local/bin/docker-compose
    SHELL
 end
-
-
-
-
-
-

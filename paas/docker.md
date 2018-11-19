@@ -6,7 +6,7 @@ En este apartado vamos a crear una máquina virtual en virtualbox gestionada por
 
 Tenemos un ordenador donde hemos instalado la [última versión de vagrant](https://www.vagrantup.com/downloads.html) y VirtualBox. Tenemos que descargarnos una imagen vagrant del sistema operativo debian stretch, para ello (**Nota: todas las operaciones que hacemos con vagrant la hacemos con un usuario sin privilegios**):
 
-    $ vagrant box add debian/stretch64 --provider virtualbox
+    $ vagrant box add ubuntu/bionic64 --provider virtualbox
 
 Al terminar la descarga comprueba que se ha bajado correctamente con:
 
