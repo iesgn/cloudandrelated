@@ -48,6 +48,7 @@ automated configuration or containers.
   - [What is kubernetes used for?](https://iesgn.github.io/cloudandrelated/kubernetes.html#/)
   - [Deploying applications on OpenShift](https://iesgn.github.io/cloudandrelated/deploying_apps_openshift.html#/)
   - [Minishift: Playing around with OpenShift v3](minishift.md)
+  - Live modification
 	
 * PART IV
   - [Infrastructure as Code](https://iesgn.github.io/cloudandrelated/infra_as_code.html#/). [VIDEO](https://youtu.be/Jcx5sbl5teE)
