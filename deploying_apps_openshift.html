@@ -89,12 +89,15 @@ tema: white
 <section>
   <h4>Recursos que nos ofrece OpenShift</h4>
   <ul>
-      <li><strong>image registry</strong>: The images created in the builds are saved in an internal registry</li>
-      <li><strong>Routes</strong>: A route (name) is automatically associated to access each application</li>
+      <li><strong>image registry</strong>: The images created in the
+      builds are saved in an internal registry</li>
+      <li><strong>Routes</strong>: A route (name) is automatically
+      associated to access each application</li>
       <li><strong>Service catalog</strong>: Set of images and base
       templates. New images can be built from them using s2i.</li>
       <li><strong>Web Console</strong></li>
-      <li><strong>cli oc</strong>: Command line tool to manage OpenShift</li>
+      <li><strong>cli oc</strong>: Command line tool to manage
+      OpenShift</li>
   </ul>
 </section>
 </section>
@@ -149,75 +152,82 @@ tema: white
 </section>
 <section>
 <section>
-  <h4>Actualización y rollback de nuestra aplicación</h4>
+  <h4>Updating and rolling back the application</h4>
   <ol>
-    <li>Modificamos el código de nuestra aplicación, y guardamos los cambios en el repositorio.</li>
-    <li>Desde openshift realizamos un nuevo build, que construye una nueva imagen con la aplicación modificada.</li>
-    <li>A continuación, de forma automática, se realizará un nuevo deployment, que borrará los pods antiguos y creará nuevos desde la nueva imagen.</li>
-    <li>En cualquier momento podemos desplegar un deployment anterior, para volver a una versión anterior de nuestra aplicación.</li>
+    <li>Modify the code and save the changes in the repo.</li>
+    <li>Make a new build, creating a new image with the changes.</li>
+    <li>A new development will be make automatically, deleting the old
+    pods and creating new ones.</li>
+    <li>The previous deployment can be deployed when needed, rolling
+    back to the first release of the application.</li>
   </ol>
 </section>
 <section>
-  <h4>Actualización y rollback de nuestra aplicación</h4>
+  <h4>Updating and rolling back the application</h4>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/xY7W2e1ufWk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 </section>
 <section>
   <section>
-    <h4>Despliegue de aplicaciones Python en OpenShift</h4>
+    <h4>Deploying a python application on OpenShift v3</h4>
     <ol>
-      <li>Guardamos nuestra aplicación en un repositorio GitHub.</li>
-      <li>Al crear nuestra aplicación, escogemos en el catálogo la opción de imagen <strong>python</strong>.</li>
-      <li>Escogemos la versión de python e indicamos el repositorio de nuestra aplicación.</li>
-      <li>Durante el despliegue se van a instalar los módulos que encuentre en el fichero requirements.txt</li>
-      <li>El contenedor que vamos a crear ejecuta por defecto una aplicación qie se llame app.py</li>
+      <li>The application is available on a git repo.</li>
+      <li>A new application is created,
+      selecting <strong>python</strong> from the catalog, choosing
+      the right python version and defining the git repo.</li>
+      <li>The python dependencies are installed from the
+      requirements.txt file</li>
     </ol>
   </section>
   <section>
-    <h4>Despliegue de aplicaciones Python en OpenShift</h4>
+    <h4>Deploying a python application on OpenShift v3</h4>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/6CjMm7iLdsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </section>
-  </section>
-    
-  <section>
-    <section>
-      <h4>Despliegue de aplicaciones PHP en OpenShift</h4>
-      <ol>
-        <li>Vamos a instalar un CMS PHP que utiliza una base de datos Sqlite. (
-          phpSQLiteCMS)</li>
-        <li><a href="https://github.com/ilosuna/phpsqlitecms.git">Repositorio GitHub</a></li>
-        <li>Al crear nuestra aplicación, escogemos en el catálogo la opción de imagen <strong>PHP</strong>.</li>
-        <li>Escogemos la versión de PHP e indicamos el repositorio de nuestra aplicación.</li>
-        <li>Durante el despliegue se van a instalar los módulos que encuentre en el fichero composer.json</li>
-      </ol>
-    </section>
-    <section>
-      <h4>Despliegue de aplicaciones PHP en OpenShift</h4>
-      <ol>
-        <li>En el directorio /cms/data se encuentran las bases de datos de la aplicación.</li>
-        <li>Los contenedores son <strong>efímeros</strong>, no tenemos almacenamiento persistente.</li>
-        <li>Cuando escalemos nuestra aplicación se va a crear otro pod con la base de datos inicial, en este nuevo pod no tenemos el mismo contenido que el original.</li>
-        <li>Si realizamos un nuevo despliegue los nuevos pods perderán los datos de la base de datos.</li>
-        <li><strong>¡¡¡Necesitamos volúmenes persistentes!!!</strong></li>
-      </ol>
-    </section>
-    <section>
-      <h4>Despliegue de aplicaciones PHP en OpenShift</h4>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/loV8Iglhp30" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </section>
-    </section>
+</section>
+
 <section>
-    <section>
-      <h4>Despliegue de aplicaciones PHP en OpenShift con almacenamiento persistente</h4>
-      <ol>
-        <li>El directorio donde se almacenan las bases de datos es /cms/data</li>
-        <li>Nosotros vamos a crear un volumen persistente y lo vamos a montar en ese directorio.</li>
-        <li>En el primer despliegue que creemos vamos a copiar al volumen persistente las bases de datos inicializadas.</li>
-        <li>Para ello vamos a hacer un fork del repositorio y vamos a guardar en un directorio las bases de datos, para posteriormente poder copiarlas al volumen.</li>
-      </ol>
-    </section>
-    <section>
-      <h4>Despliegue de aplicaciones PHP en OpenShift con almacenamiento persistente</h4>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/z8zkktHbcac" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </section>
+  <section>
+    <h4>Deploying a PHP application on OpenShift v3</h4>
+    <ol>
+      <li>We're going to show how to deploy a PHP CMS with a sqlite
+        database (phpSQLiteCMS)</li>
+      <li><a href="https://github.com/ilosuna/phpsqlitecms.git">Github repo</a></li>
+      <li>A new application is created, selecting <strong>php</strong>
+      from the catalog, choosing the right python version and defining
+      the git repo.</li>
+      <li>The php dependencies are installed from the composer.json
+      file</li>
+    </ol>
   </section>
+  <section>
+    <h4>Deploying a PHP application on OpenShift v3</h4>
+    <ol>
+      <li>The database is located in the directory /cms/data</li>
+      <li>Containers are ephemeral, we don't have persistent
+	storage.</li>
+      <li>If the applications needs to scale, a new pod from the image
+	will be created with a new and clean database</li>
+      <li>If a new deployment is made, the new pods will lose the
+	data: Persistent volumes needed!</li>
+    </ol>
+  </section>
+  <section>
+    <h4>Deploying a PHP application on OpenShift v3</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/loV8Iglhp30" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </section>
+</section>
+<section>
+  <section>
+    <h4>Deploying a PHP application with persistent volumes on OpenShift v3</h4>
+    <ol>
+      <li>The directory where databases are stored is /cms/data</li>
+      <li>A persistent volume must be created and mounted on /cms/data.</li>
+      <li>During the first deployment, the persistent volume is mount
+      after the launch, so the database files must be copied manually.</li>
+    </ol>
+  </section>
+  <section>
+    <h4>Deploying a PHP application with persistent volumes on OpenShift v3</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/z8zkktHbcac" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </section>
+</section>
