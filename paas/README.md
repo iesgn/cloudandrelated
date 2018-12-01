@@ -16,3 +16,4 @@
 ## Prácticas
 
 * [Práctica 1: Jugando con git y GitHub](doc/github.md)
+* [Práctica 2: Desplegando una página estática en OpenShift](doc/estatica.md)

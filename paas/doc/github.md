@@ -72,7 +72,7 @@ Utilizaremos **git** para realizar el control de versiones de nuestros proyectos
 
 Cuando hacemos un fork de un repositorio estamos haciendo una copia del mismo. Podemos hacer un fork de cualquier repositorio de cualquier usuario de github y obtenemos una copia del repositorio en nuestra cuenta. Veamos como se hace:
 
-1. Accede a mi repositorio de GitHub: [`https://github.com/josedom24/html_for_openshift`](https://github.com/josedom24/html_for_openshift), busca el botón *Fork** y hazte una copia del mismo.
+1. Accede a mi repositorio de GitHub: [`https://github.com/josedom24/html_for_openshift`](https://github.com/josedom24/html_for_openshift), busca el botón **Fork** y hazte una copia del mismo.
 2. Clona tu copia en tu ordenador de trabajo.
 3. Todas las modificaciones que hagas a partir de ahora, la estará haciendo sobre tu copia de repositorio. 
 
