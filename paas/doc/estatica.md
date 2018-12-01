@@ -2,7 +2,7 @@
 
 Vamos a desplegar len OpenShift la página estática que se encuentra en el repositorio al que le has hecho un fork. Para ello:
 
-1. Accede a la consola web de OpenShift (usuario *developer* y con cualquier contraseña) y elige del catalogo de imágenes, la imagen **Apache HTTP Server**.
+1. Accede a la consola web de OpenShift (usuario *developer* y con cualquier contraseña) y elige del catalogo de imágenes, la plantilla **Apache HTTP Server**.
 
 2. A continuación indicamos el nombre de nuestra aplicación y el repositorio que queremos desplegar (la dirección del repositorio será con https, para que openshift pueda acceder al mismo).
 
@@ -33,6 +33,6 @@ Vamos a desplegar len OpenShift la página estática que se encuentra en el repo
 
 ## Rollout de nuestra aplicación
 
-11. En cualquier momento, podemos volver a la versión de nuestra aplicación de un *deployment* anterior. Para ello sólo debes acceder al número de *deployment* que quieres recuperar y pulsar sobre el botón **Roll Back**. En este momento se creará un nuevo *deployment* que creará nuevbos pods con la versión anterior de la aplicación.
+11. En cualquier momento, podemos volver a la versión de nuestra aplicación de un *deployment* anterior. Para ello sólo debes acceder al número de *deployment* que quieres recuperar y pulsar sobre el botón **Roll Back**. En este momento se creará un nuevo *deployment* que creará nuevos pods con la versión anterior de la aplicación.
 
 12. Comprueba efectivamente que la aplicación se ha modificado a la versión original.

@@ -4,7 +4,7 @@
 
 Vamos a instalar un CMS PHP que utiliza una base de datos Sqlite. ( [phpSQLiteCMS](https://github.com/ilosuna/phpsqlitecms)).
 
-1. Accede a la consola web de OpenShift y elige del catalogo de imágenes, la imagen **PHP**.
+1. Accede a la consola web de OpenShift y elige del catalogo de imágenes, la plantilla **PHP**.
 
 2. Indica el nombre de la aplicación, escogemos la versión de PHP e indicamos el repositorio de la aplicación.
 
@@ -27,7 +27,7 @@ En este caso vamos a desplegar un cms Wordpress utilizando una base de datos mys
 
 3. Comprobamos que tenemos un pod que esta ejecutando mysql. ¿Se ha creado una ruta de acceso? ¿Por qué?
 
-4. A continuación vamos a desplegar Wordpress, para ello vamos a crear otra aplicación escogiendo del catálogo la imagen **php** e indicando el nombre de la aplicación y el repositorio GitHub de Wordpress.
+4. A continuación vamos a desplegar Wordpress, para ello vamos a crear otra aplicación escogiendo del catálogo la plantilla **php** e indicando el nombre de la aplicación y el repositorio GitHub de Wordpress.
 
 5. Comprobamos que se ha creado el *deployment* y el *pod* de forma adecuada, accedemos a la ruta de acceso de la aplicación y comenzamos el proceso de instalación de Wordpress.
 
