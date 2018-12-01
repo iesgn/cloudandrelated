@@ -8,6 +8,11 @@
 * [Ciclo de vida de nuestras aplicaciones en docker (2ª parte)](https://iesgn.github.io/cloudandrelated/es_docker.html#/3)
 * [minikube: Jugando con kubernetes](minikube.md)
 * [Ejercicios con kubernetes: ¿Qué nos aporta Kubernetes en el despliegue de aplicaciones?](https://iesgn.github.io/cloudandrelated/es_kubernetes.html#/)
+* [Rescursos sobre Kubernetes](https://github.com/josedom24/kubernetes)
 * [minishift: Jugando con openshift v3](minishift.md)
 * [Introducción a OpenShift. Aplicaciones orientadas a microservicios](https://iesgn.github.io/cloudandrelated/es_openshift.html#/)
 * [Ejercicios: Desplegando aplicaciones en Openshift](https://iesgn.github.io/cloudandrelated/aplicaciones_openshift.html#/)
+
+## Prácticas
+
+* [Práctica 1: Jugando con git y GitHub](github.md)
