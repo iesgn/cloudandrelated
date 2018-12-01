@@ -17,3 +17,22 @@ Vamos a desplegar len OpenShift la página estática que se encuentra en el repo
 6. Vamos a escalar nuestra aplicación, por lo tanto vamos a crear más pods con nuestra aplicación. Para ello simplemente localiza el gráfico donde vemos el círculo donde vemos el pod y pulsa sobre la flecha superior.
 
 ![escalar](img/escalar.png)
+
+7. Comprueba que se han creado varios pods. Accede a la aplicación desde el navegador, aunque no lo podamos vver, el acceso a la aplicación se está repartiendo entre los distintos pods que se están ejecutando en los diferentes nodos del cluster (balanceo de carga).
+
+## Actualización de nuestra aplicación
+
+8. En nuetro ordenado vamos a cambiar el fichero `index.html` de nuestro repositorio, posteriormente subimos los cambios a nuestro repositorio remoto en GitHub:
+
+        git commit -am "Hemos cambiado el fichero index"
+        git push
+
+9. A continuación, desde la consola web de OpenShift, ejecuta un nuevo *build*. Una vez terminado comprueba que se ha creado un nuevo *deployment* y que se han parado los pods danteriores y se han creado nuevos con la nueva versión de la aplicación.
+
+10. Accede a la aplicación desde un navegador web y comprueba que se ha modificado.
+
+## Rollout de nuestra aplicación
+
+11. En cualquier momento, podemos volver a la versión de nuestra aplicación de un *deployment* anterior. Para ello sólo debes acceder al número de *deployment* que quieres recuperar y pulsar sobre el botón **Roll Back**. En este momento se creará un nuevo *deployment* que creará nuevbos pods con la versión anterior de la aplicación.
+
+12. Comprueba efectivamente que la aplicación se ha modificado a la versión original.
