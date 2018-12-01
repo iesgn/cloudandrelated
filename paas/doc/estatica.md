@@ -14,4 +14,6 @@ Vamos a desplegar len OpenShift la página estática que se encuentra en el repo
 
 ## Escalando nuestra aplicación
 
-6. ddd
+6. Vamos a escalar nuestra aplicación, por lo tanto vamos a crear más pods con nuestra aplicación. Para ello simplemente localiza el gráfico donde vemos el círculo donde vemos el pod y pulsa sobre la flecha superior.
+
+![escalar](img/escalar.png)
