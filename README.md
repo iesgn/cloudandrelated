@@ -35,6 +35,7 @@ automated configuration or containers.
     + [Monitoring: use & cost](https://drive.google.com/file/d/1YzDzj5tz2Zq6G9rK1K_YQVNwcFoCsbJf/view?usp=sharing)
     + [Networking & Security](https://drive.google.com/file/d/1KgDmtcGVBmOlF3N39Bx7bGV7P5p4D6p9/view?usp=sharing)
   - AWS Educate for your school
+    + [Steps for scenario 2](https://drive.google.com/file/d/1riYtCpXRJ-pITV_lGHkOgZGyH3LDUYz2/view?usp=sharing)	
 
 
 * PART III
@@ -48,7 +49,7 @@ automated configuration or containers.
   - [What is kubernetes used for?](https://iesgn.github.io/cloudandrelated/kubernetes.html#/)
   - [Deploying applications on OpenShift](https://iesgn.github.io/cloudandrelated/deploying_apps_openshift.html#/)
   - [Minishift: Playing around with OpenShift v3](minishift.md)
-	
+  - [Steps to install Minishift &  VirtualBox  &    GitBash](https://drive.google.com/file/d/1veGl9b-5NIaDjx5x6X8A7g9Gmq9cnLMc/view?usp=sharing)	
 * PART IV
   - [Infrastructure as Code](https://iesgn.github.io/cloudandrelated/infra_as_code.html#/). [VIDEO](https://youtu.be/Jcx5sbl5teE)
   - [DevOps (and Site Reliability Engineer)](https://iesgn.github.io/cloudandrelated/devops.html#/). [VIDEO](https://youtu.be/qE1Kqjm5FjM)
