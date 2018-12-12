@@ -34,8 +34,8 @@ automated configuration or containers.
     + [IAM](https://drive.google.com/file/d/1VtM1GYBuHBGkDIGpAr6vhG2_Xxr_Azmr/view?usp=sharing) 
     + [Monitoring: use & cost](https://drive.google.com/file/d/1YzDzj5tz2Zq6G9rK1K_YQVNwcFoCsbJf/view?usp=sharing)
     + [Networking & Security](https://drive.google.com/file/d/1KgDmtcGVBmOlF3N39Bx7bGV7P5p4D6p9/view?usp=sharing)
-  - AWS Educate for your school
-    + [Steps for scenario 2](https://drive.google.com/file/d/1riYtCpXRJ-pITV_lGHkOgZGyH3LDUYz2/view?usp=sharing)	
+    + [Steps for scenario 2](https://drive.google.com/file/d/1riYtCpXRJ-pITV_lGHkOgZGyH3LDUYz2/view?usp=sharing)
+  - AWS Educate for your school	
 
 
 * PART III
