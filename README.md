@@ -20,8 +20,7 @@ automated configuration or containers.
 * PART I
   - [What is the cloud computing?](https://iesgn.github.io/cloudandrelated/intro-cloud.html#/)
   - [Infrastructure evolution](https://iesgn.github.io/cloudandrelated/infra-evolution.html#/)
-  - [Applications evolution](https://iesgn.github.io/cloudandrelated/app-evolution.html#/). [VIDEO](https://youtu.be/CIVPS8sUVlM)
-  - [Why clod computing must be used in IT courses?](https://youtu.be/2AMgEB2Fm3g)
+  - [Applications evolution](https://iesgn.github.io/cloudandrelated/app-evolution.html#/)
 
 * PART II
   - [Instructions](https://iesgn.github.io/cloudandrelated/iaas-intructions.html#/)
@@ -51,11 +50,11 @@ automated configuration or containers.
   - [Minishift: Playing around with OpenShift v3](minishift.md)
   - [Steps to install Minishift &  VirtualBox  &    GitBash](https://drive.google.com/file/d/1veGl9b-5NIaDjx5x6X8A7g9Gmq9cnLMc/view?usp=sharing)	
 * PART IV
-  - [Infrastructure as Code](https://iesgn.github.io/cloudandrelated/infra_as_code.html#/). [VIDEO](https://youtu.be/Jcx5sbl5teE)
-  - [DevOps (and Site Reliability Engineer)](https://iesgn.github.io/cloudandrelated/devops.html#/). [VIDEO](https://youtu.be/qE1Kqjm5FjM)
-  - [Markup Languages](https://iesgn.github.io/cloudandrelated/markup.html#/). [VIDEO](https://youtu.be/1YjjSEopeA4)
-  - [Frequently used programming languages: Python, Ruby, Go](https://iesgn.github.io/cloudandrelated/languages.html#/).
-  - [Version Control Systems: git](https://iesgn.github.io/cloudandrelated/control_version.html#/).
+  - [Infrastructure as Code](https://iesgn.github.io/cloudandrelated/infra_as_code.html#/)
+  - [DevOps (and Site Reliability Engineer)](https://iesgn.github.io/cloudandrelated/devops.html#/)
+  - [Markup Languages](https://iesgn.github.io/cloudandrelated/markup.html#/)
+  - [Frequently used programming languages: Python, Ruby, Go](https://iesgn.github.io/cloudandrelated/languages.html#/)
+  - [Version Control Systems: git](https://iesgn.github.io/cloudandrelated/control_version.html#/)
   - [Resource provisioning: Vagrant, Cloudformation, heat or terraform](https://iesgn.github.io/cloudandrelated/resource_prov.html)
   - [Configuration management systems: Puppet, chef, ansible y salt](https://iesgn.github.io/cloudandrelated/conf_management.html)
 
