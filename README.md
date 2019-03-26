@@ -26,7 +26,6 @@ automated configuration or containers.
 * PART II
   - [Instructions](https://iesgn.github.io/cloudandrelated/iaas-intructions.html#/)
   - [Activities](https://docs.google.com/presentation/d/1kNtrR-iPgkeAsoJ_lsEvEV7w5N-i82kv85DpThmjqFw/edit?usp=sharing)
-  - [Enroll as AWS Educate student](https://docs.google.com/presentation/d/1YbkEnfNz72zNuUpFcbpyhvAiLh6QaSVUqKM0mWrkNBo/edit?usp=sharing) 
   - Contents
     + [Introduction to IaaS](https://drive.google.com/file/d/1C1_ATJWkIxHGUcxKixiYU1XkzlKEsmpS/view?usp=sharing)
     + [Introduction to AWS](https://drive.google.com/file/d/13HJBw-XdbiLjueW3f04iEAqh_5rwHooI/view?usp=sharing)
@@ -36,8 +35,8 @@ automated configuration or containers.
     + [Networking & Security](https://drive.google.com/file/d/1KgDmtcGVBmOlF3N39Bx7bGV7P5p4D6p9/view?usp=sharing)
     + [Steps for scenario 2](https://drive.google.com/file/d/1riYtCpXRJ-pITV_lGHkOgZGyH3LDUYz2/view?usp=sharing)
   - AWS Educate for your school	
-
-
+    + [Enroll as AWS Educate student](https://docs.google.com/presentation/d/1YbkEnfNz72zNuUpFcbpyhvAiLh6QaSVUqKM0mWrkNBo/edit?usp=sharing) 
+    + [Guide for AWS Educator Classrooms](https://github.com/cloudadnrelated/AWSEducatorClassrooms.pdf)
 * PART III
   <!-- - Containers: Systems containers like LXC vs applications containers like docker -->
   <!-- - Containers orchestration: kubernetes -->
