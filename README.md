@@ -35,7 +35,7 @@ automated configuration or containers.
     + [Steps for scenario 2](https://drive.google.com/file/d/1riYtCpXRJ-pITV_lGHkOgZGyH3LDUYz2/view?usp=sharing)
   - AWS Educate for your school	
     + [Enroll as AWS Educate student](https://docs.google.com/presentation/d/1YbkEnfNz72zNuUpFcbpyhvAiLh6QaSVUqKM0mWrkNBo/edit?usp=sharing) 
-    + [Guide for AWS Educator Classrooms](https://github.com/cloudadnrelated/AWSEducatorClassrooms.pdf)
+    + [Guide for AWS Educator Classrooms](https://github.com/cloudandrelated/AWSEducatorClassrooms.pdf)
 * PART III
   <!-- - Containers: Systems containers like LXC vs applications containers like docker -->
   <!-- - Containers orchestration: kubernetes -->
