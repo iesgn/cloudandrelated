@@ -34,7 +34,7 @@ automated configuration or containers.
     + [Networking & Security](https://drive.google.com/file/d/1KgDmtcGVBmOlF3N39Bx7bGV7P5p4D6p9/view?usp=sharing)
     + [Steps for scenario 2](https://drive.google.com/file/d/1riYtCpXRJ-pITV_lGHkOgZGyH3LDUYz2/view?usp=sharing)
   - AWS Educate for your school	
-    + [Enroll as AWS Educate student](https://docs.google.com/presentation/d/1YbkEnfNz72zNuUpFcbpyhvAiLh6QaSVUqKM0mWrkNBo/edit?usp=sharing) 
+    + [Enroll in AWS Educate -student or teacher-](https://docs.google.com/presentation/d/1YbkEnfNz72zNuUpFcbpyhvAiLh6QaSVUqKM0mWrkNBo/edit?usp=sharing) 
     + [Guide for AWS Educator Classrooms](https://github.com/iesgn/cloudandrelated/blob/master/AWSEducatorClassrooms.pdf)
 * PART III
   <!-- - Containers: Systems containers like LXC vs applications containers like docker -->
